@@ -1,0 +1,113 @@
+@use "../abstracts" as ab;
+
+.hero {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  min-height: 618px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // Reducido de 128px a 64px — el min-height ya crea el espacio vertical
+  padding: 20px 20px;
+
+  // ─── Subtítulo Label MD ───────────────────────────────────────
+  &__header-subtitle {
+    display: block;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$on-surface-variant;
+    margin-bottom: ab.$unit;
+  }
+
+  // ─── Título Display XL ────────────────────────────────────────
+  h1 {
+    font-family: ab.$primary-font;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: ab.$on-surface;
+    // Reset del margin que normalize agrega al h1
+    margin: 0;
+  }
+
+  // ─── Gradiente animado en "Stack" ─────────────────────────────
+  &__header-span {
+    background: linear-gradient(
+      135deg,
+      ab.$primary-lime 0%,
+      ab.$secondary-cyan 100%
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientStack 6s ease infinite;
+  }
+
+  // ─── Descripción Body LG ──────────────────────────────────────
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: ab.$on-surface-variant;
+    max-width: 520px;
+    margin-top: ab.$unit * 3;
+  }
+
+  // ─── Contenedor de botones ────────────────────────────────────
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: ab.$gutter;
+    margin-top: ab.$unit * 5;
+  }
+}
+
+// ─── Keyframes: gradiente animado ────────────────────────────────
+@keyframes gradientStack {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// ─── Responsive ─────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    // Spacing reducido en mobile: 48px arriba, 32px abajo
+    padding: ab.$unit * 6 0 ab.$unit * 4;
+
+    h1 {
+      // Escala más agresiva en mobile
+      font-size: clamp(2rem, 10vw, 2.75rem);
+      line-height: 1.15;
+    }
+
+    &__header-subtitle {
+      font-size: 0.75rem;
+    }
+
+    &__description {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    &__buttons {
+      flex-direction: column;
+      align-items: stretch;
+      gap: ab.$unit * 1.5; // 12px
+    }
+  }
+}

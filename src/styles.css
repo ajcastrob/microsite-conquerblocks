@@ -1,0 +1,79 @@
+:root {
+  /*fonts */
+  --primary-font: "Sora", sans-serif;
+  --secondary-font: "DM Sans", sans-serif;
+
+  /* Primarys colors */
+  --primary-lime: #d4ff00;
+  --on-primary: #000000;
+
+  /* Secundarys colors */
+  --secondary-cyan: #00d4ff;
+  --on-secondary: #003642;
+
+  /* Terciary colors */
+  --tertiary-cyan: #00d4ff;
+
+  /* Superficie en Dark Mode */
+  --background: #09090b;
+  --surface: #09090b;
+  --surface-container: #18181b;
+  --surface-container-high: #27272a;
+  --surface-container-low: #09090b;
+  --surface-container-lowest: #000000;
+  --surface-bright: #3f3f46;
+  --surface-dim: #09090b;
+
+  /* Texto */
+  --on-surface: #fafafa;
+  --on-surface-variant: #a1a1aa;
+  --on-background: #fafafa;
+
+  /*Bordes y líneas */
+  --outline: #71717a;
+  --outline-variant: #3f3f46;
+
+  /*error*/
+  --error: #ef4444;
+
+  /*border radius */
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /*Spacing*/
+  --container-padding-mobile: 24px;
+  --container-padding-desktop: 64px;
+  --unit: 8px;
+  --section-gap: 128px;
+  --gutter: 24px;
+}
+
+html {
+  font-family: var(--primary-font);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--background);
+  color: var(--on-surface);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}

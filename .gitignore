@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.env.local
+.vscode/
+.idea/
+.commandcode/
+AGENTS.md 
+DESIGN.md
+.agents/

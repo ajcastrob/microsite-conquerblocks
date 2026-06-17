@@ -1,0 +1,258 @@
+:host {
+  --header-height: 64px;
+
+  /* z-index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  /* Font weights */
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-fixed);
+
+  /* Glass morphism effect */
+  background-color: rgb(9 9 11 / 1);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  /* Font and color */
+  font-family: var(--primary-font);
+  color: var(--on-surface);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin-inline: var(--container-padding-mobile);
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin-inline: auto;
+  }
+}
+
+/* Nav main */
+.nav {
+  height: var(--header-height);
+  ul {
+    list-style: none;
+  }
+}
+
+/* Nav data - logo + toggle */
+.nav__data {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.05em;
+}
+
+.nav__logo-img {
+  height: 32px;
+  width: auto;
+}
+
+.nav__logo-text {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--primary-font);
+  font-weight: 800;
+}
+
+.nav__logo-conquer {
+  color: var(--on-surface);
+}
+
+.nav__logo-blocks {
+  background: linear-gradient(
+    135deg,
+    var(--primary-lime) 0%,
+    var(--secondary-cyan) 100%
+  );
+  padding: 0 6px;
+  color: var(--on-primary);
+  border-radius: var(--radius-default);
+}
+
+/* Toggle button (mobile) */
+.nav__toogle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.nav__burger,
+.nav__close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.5rem;
+  color: var(--primary-lime);
+  cursor: pointer;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+
+.nav__close {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+/* Nav menu (mobile) */
+.nav__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: var(--on-surface-variant);
+  font-family: var(--secondary-font);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--primary-lime);
+}
+
+/* Mobile menu styles */
+@media screen and (max-width: 1117px) {
+  .nav__menu {
+    position: absolute;
+    left: 0;
+    top: var(--header-height);
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    pointer-events: none;
+    opacity: 0;
+    background-color: rgba(9, 9, 11, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    transition:
+      opacity 0.3s,
+      top 0.4s;
+  }
+
+  .nav__menu::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .nav__menu-ul {
+    padding: var(--gutter) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav__link {
+    display: block;
+    padding: 1rem var(--container-padding-mobile);
+    color: var(--on-surface);
+    font-size: 1rem;
+    font-weight: var(--font-semi-bold);
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s;
+  }
+
+  .nav__link:hover {
+    background-color: var(--surface-container);
+    color: var(--primary-lime);
+  }
+}
+
+/* Show menu */
+.show-menu {
+  opacity: 1;
+  top: var(--header-height);
+  pointer-events: initial;
+}
+
+/* Show icon - toggle burger/close */
+.show-icon .nav__burger {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.show-icon .nav__close {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* Small devices */
+@media (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
+}
+
+/* Large devices - desktop */
+@media (min-width: 1118px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav__toogle {
+    display: none;
+  }
+
+  .nav__menu {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    pointer-events: initial;
+    opacity: 1;
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .nav__menu-ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .nav__link {
+    padding: 0;
+    font-size: 0.875rem;
+    border-bottom: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__link:hover {
+    background-color: transparent;
+  }
+}
