@@ -70,13 +70,13 @@ export class NavbarConquer extends HTMLElement {
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__menu-ul">
           <li>
-            <a href="#" class="nav__link">Inicio</a>
+            <a href="../../index.html" class="nav__link">Inicio</a>
           </li>
           <li>
-            <a href="#" class="nav__link">Somos</a>
+            <a href="/microsite-conquerblocks/pages/somos.html" class="nav__link">Somos</a>
           </li>
           <li>
-            <a href="#" class="nav__link">Cursos</a>
+            <a href="/microsite-conquerblocks/pages/cursos.html" class="nav__link">Cursos</a>
           </li>
           <li>
             <a href="#" class="nav__link">Blog</a>

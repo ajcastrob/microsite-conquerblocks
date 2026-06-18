@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./sass/main.scss" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -61,6 +61,92 @@
           <article class="statistics__card">
             <h3 class="statistics__number">98%</h3>
             <span class="statistics__label">Éxito</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="courses container" id="courses">
+        <div class="courses__header">
+          <h2>Nuestros Cursos</h2>
+          <div class="courses__nav"></div>
+        </div>
+
+        <div class="courses__grid">
+          <article class="courses__card courses__card--large">
+            <div class="courses__image-wrapper">
+              <img
+                src="assets/ciberseguridad.avif"
+                alt="Curso de Ciberseguridad"
+              />
+              <div class="courses__image-overlay"></div>
+              <span class="courses__badge">Top Trending</span>
+            </div>
+            <div class="courses__card-content">
+              <h3>Ciberseguridad</h3>
+              <p>
+                Protege sistemas, redes y datos contra amenazas digitales.
+                Domina herramientas de hacking ético, criptografía y análisis de
+                vulnerabilidades.
+              </p>
+              <button class="courses__card-link">
+                Ir a curso
+                <i class="ri-arrow-right-line"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="courses__small-grid">
+          <article class="courses__card courses__card--small">
+            <div class="courses__small-image-wrapper">
+              <img src="assets/blockchain.avif" alt="Curso de Blockchain" />
+              <div class="courses__small-image-overlay"></div>
+            </div>
+            <i class="ri-shield-check-line courses__card-icon"></i>
+            <div class="courses__card-content">
+              <h4>Blockchain</h4>
+              <p>
+                Construye contratos inteligentes y descentraliza aplicaciones
+                con tecnología blockchain.
+              </p>
+              <button class="courses__card-link">
+                Ir a curso
+                <i class="ri-arrow-right-line"></i>
+              </button>
+            </div>
+            <div class="courses__progress">
+              <div
+                class="courses__progress-fill courses__progress-fill--tertiary"
+                style="width: 75%"
+              ></div>
+            </div>
+          </article>
+          <article class="courses__card courses__card--small">
+            <div class="courses__small-image-wrapper">
+              <img
+                src="assets/IA.avif"
+                alt="Curso de Inteligencia Artificial"
+              />
+              <div class="courses__small-image-overlay"></div>
+            </div>
+            <i class="ri-brain-line courses__card-icon"></i>
+            <div class="courses__card-content">
+              <h4>Inteligencia Artificial</h4>
+              <p>
+                Desarrolla modelos de machine learning y deep learning para
+                resolver problemas complejos.
+              </p>
+              <button class="courses__card-link">
+                Ir a curso
+                <i class="ri-arrow-right-line"></i>
+              </button>
+            </div>
+            <div class="courses__progress">
+              <div
+                class="courses__progress-fill courses__progress-fill--secondary"
+                style="width: 50%"
+              ></div>
+            </div>
           </article>
         </div>
       </section>

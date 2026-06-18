@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { resolve } from "path";
 import { standardCssModules } from "vite-plugin-standard-css-modules";
 
 export default defineConfig({
@@ -9,6 +10,13 @@ export default defineConfig({
   server: { port: 1234 },
   build: {
     outDir: "../dist",
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "src/index.html"),
+        somos: resolve(__dirname, "src/pages/somos.html"),
+        cursos: resolve(__dirname, "src/pages/cursos.html"),
+      },
+    },
   },
   css: {
     transformer: "lightningcss",

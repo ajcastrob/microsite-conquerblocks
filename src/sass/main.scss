@@ -14,12 +14,15 @@
 @use "layout/header";
 @use "layout/hero";
 @use "layout/statistics";
+@use "layout/courses";
 
 // 4. Components
 @use "components/button";
 
 // 5. Pages
 @use "pages/home";
+@use "pages/somos";
+@use "pages/cursos";
 
 // 6. Themes
 @use "themes/default";

@@ -1,4 +1,58 @@
-// -----------------------------------------------------------------------------
-// When having several themes, this file contains everything related to the
-// default one.
-// -----------------------------------------------------------------------------
+@use "../abstracts" as ab;
+
+:root {
+  // Fonts
+  --primary-font: #{ab.$primary-font};
+  --secondary-font: #{ab.$secondary-font};
+  --font-semi-bold: 600;
+
+  // Z-index
+  --z-fixed: 100;
+  --header-height: 3.5rem;
+
+  // Primary Colors
+  --primary-lime: #{ab.$primary-lime};
+  --on-primary: #{ab.$on-primary};
+
+  // Secondary Colors
+  --secondary-cyan: #{ab.$secondary-cyan};
+  --on-secondary: #{ab.$on-secondary};
+
+  // Tertiary Colors
+  --tertiary-cyan: #{ab.$tertiary-cyan};
+
+  // Surface (Dark Mode)
+  --background: #{ab.$background};
+  --surface: #{ab.$surface};
+  --surface-container: #{ab.$surface-container};
+  --surface-container-high: #{ab.$surface-container-high};
+  --surface-container-low: #{ab.$surface-container-low};
+  --surface-container-lowest: #{ab.$surface-container-lowest};
+  --surface-bright: #{ab.$surface-bright};
+  --surface-dim: #{ab.$surface-dim};
+
+  // Text
+  --on-surface: #{ab.$on-surface};
+  --on-surface-variant: #{ab.$on-surface-variant};
+  --on-background: #{ab.$on-background};
+
+  // Borders & Lines
+  --outline: #{ab.$outline};
+  --outline-variant: #{ab.$outline-variant};
+
+  // Error
+  --error: #{ab.$error};
+
+  // Border Radius
+  --radius-default: #{ab.$radius-default};
+  --radius-lg: #{ab.$radius-lg};
+  --radius-xl: #{ab.$radius-xl};
+  --radius-full: #{ab.$radius-full};
+
+  // Spacing
+  --container-padding-mobile: #{ab.$container-padding-mobile};
+  --container-padding-desktop: #{ab.$container-padding-desktop};
+  --unit: #{ab.$unit};
+  --section-gap: #{ab.$section-gap};
+  --gutter: #{ab.$gutter};
+}

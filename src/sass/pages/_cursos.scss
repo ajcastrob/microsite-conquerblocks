@@ -1,0 +1,329 @@
+@use "../abstracts" as ab;
+
+// ─── 1. Hero ──────────────────────────────────────────────────────
+.cursos-hero {
+  padding: ab.$unit * 10 0 ab.$unit * 8;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__subtitle {
+    display: block;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$primary-lime;
+    margin-bottom: ab.$unit * 2;
+  }
+
+  h1 {
+    font-family: ab.$primary-font;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: ab.$on-surface-variant;
+    max-width: 640px;
+    margin-top: ab.$unit * 4;
+  }
+}
+
+// ─── 2. Course Detail ──────────────────────────────────────────────
+.cursos-detalle {
+  padding: ab.$unit * 8 0;
+  scroll-margin-top: 80px;
+
+  &--featured {
+    .cursos-detalle__image-wrapper {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        box-shadow: 0 0 40px rgba(212, 255, 0, 0.1);
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__inner {
+    display: grid;
+    gap: ab.$gutter * 2;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  &__inner--reverse {
+    @media (min-width: 1024px) {
+      .cursos-detalle__image-wrapper {
+        order: 2;
+      }
+
+      .cursos-detalle__content {
+        order: 1;
+      }
+    }
+  }
+
+  &__image-wrapper {
+    border-radius: ab.$radius-xl;
+    overflow: hidden;
+    background-color: ab.$surface-container;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: ab.$unit * 3;
+  }
+
+  &__badge {
+    display: inline-block;
+    font-family: ab.$secondary-font;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: ab.$unit * 0.5 ab.$unit * 1.5;
+    border-radius: ab.$radius-full;
+    background-color: rgba(0, 212, 255, 0.2);
+    color: ab.$secondary-cyan;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    width: fit-content;
+  }
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__text {
+    font-family: ab.$secondary-font;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: ab.$on-surface-variant;
+    margin: 0;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: ab.$gutter;
+    padding: ab.$unit * 3 0;
+    border-top: 1px solid rgba(63, 63, 70, 0.3);
+    border-bottom: 1px solid rgba(63, 63, 70, 0.3);
+  }
+
+  &__meta-item {
+    display: flex;
+    align-items: center;
+    gap: ab.$unit * 1;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    color: ab.$on-surface-variant;
+
+    i {
+      font-size: 1.25rem;
+      color: ab.$primary-lime;
+    }
+  }
+
+  &__topics-title {
+    font-family: ab.$primary-font;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__topics-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: ab.$unit * 1.5;
+    list-style: none;
+    padding: 0;
+    margin: ab.$unit * 2 0 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: ab.$unit * 1;
+      font-family: ab.$secondary-font;
+      font-size: 0.9375rem;
+      color: ab.$on-surface-variant;
+
+      i {
+        font-size: 1rem;
+        color: ab.$secondary-cyan;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: ab.$unit * 1.5;
+    margin-top: ab.$unit * 2;
+    padding: ab.$unit * 2 ab.$unit * 4;
+    min-height: 48px;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: ab.$primary-lime;
+    color: ab.$on-primary;
+    border: none;
+    border-radius: ab.$radius-lg;
+    cursor: pointer;
+    transition:
+      transform 0.15s ease-out,
+      box-shadow 0.15s ease-out;
+    width: fit-content;
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    i {
+      font-size: 1.125rem;
+      transition: transform 0.2s ease-out;
+    }
+
+    &:hover i {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// ─── 3. CTA Final ──────────────────────────────────────────────────
+.cursos-cta {
+  padding: ab.$unit * 6 0 ab.$unit * 12;
+  text-align: center;
+
+  &__card {
+    background: rgba(24, 24, 27, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(63, 63, 70, 0.2);
+    border-radius: 20px;
+    padding: ab.$unit * 10 ab.$unit * 6;
+    position: relative;
+    overflow: hidden;
+  }
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__text {
+    font-family: ab.$secondary-font;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: ab.$on-surface-variant;
+    max-width: 520px;
+    margin: ab.$unit * 3 auto 0;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: ab.$unit * 1.5;
+    margin-top: ab.$unit * 5;
+    padding: ab.$unit * 2.5 ab.$unit * 5;
+    min-height: 52px;
+    font-family: ab.$secondary-font;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: ab.$primary-lime;
+    color: ab.$on-primary;
+    border: none;
+    border-radius: ab.$radius-lg;
+    cursor: pointer;
+    transition: transform 0.15s ease-out;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    i {
+      font-size: 1.25rem;
+      transition: transform 0.2s ease-out;
+    }
+
+    &:hover i {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// ─── Responsive ────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .cursos-detalle {
+    padding: ab.$unit * 5 0;
+
+    &__meta {
+      gap: ab.$unit * 2;
+    }
+
+    &__topics-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cursos-cta {
+    padding: ab.$unit * 4 0 ab.$unit * 8;
+
+    &__card {
+      padding: ab.$unit * 6 ab.$unit * 4;
+    }
+
+    &__btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

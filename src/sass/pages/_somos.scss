@@ -1,0 +1,567 @@
+@use "../abstracts" as ab;
+
+// ─── 1. Hero ──────────────────────────────────────────────────────
+.somos-hero {
+  padding: ab.$unit * 10 0 ab.$unit * 8;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__subtitle {
+    display: block;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$primary-lime;
+    margin-bottom: ab.$unit * 2;
+  }
+
+  h1 {
+    font-family: ab.$primary-font;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: ab.$on-surface-variant;
+    max-width: 600px;
+    margin-top: ab.$unit * 4;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: ab.$unit * 5;
+    padding: ab.$unit * 2 ab.$unit * 4;
+    min-height: 48px;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: ab.$primary-lime;
+    color: ab.$on-primary;
+    border: none;
+    border-radius: ab.$radius-lg;
+    cursor: pointer;
+    transition: transform 0.15s ease-out;
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+
+  &__img {
+    margin: ab.$unit * 8 0 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: ab.$radius-xl;
+      aspect-ratio: 16 / 9;
+    }
+  }
+}
+
+// ─── 2. Stats ─────────────────────────────────────────────────────
+.somos-stats {
+  padding: ab.$unit * 10 0;
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1rem;
+    color: ab.$on-surface-variant;
+    margin-top: ab.$unit * 2;
+    max-width: 600px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: ab.$gutter;
+    margin-top: ab.$unit * 6;
+  }
+
+  &__card {
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(63, 63, 70, 0.1);
+    border-radius: 20px;
+    padding: ab.$unit * 5;
+    text-align: center;
+
+    h3 {
+      font-family: ab.$primary-font;
+      font-size: 2rem;
+      font-weight: 800;
+      color: ab.$primary-lime;
+      margin: ab.$unit * 2 0 0;
+    }
+
+    span {
+      font-family: ab.$secondary-font;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: ab.$on-surface-variant;
+    }
+  }
+
+  &__icon {
+    font-size: 28px;
+    color: ab.$secondary-cyan;
+  }
+}
+
+// ─── 5. Team ──────────────────────────────────────────────────────
+.somos-team {
+  padding: ab.$unit * 10 0;
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1rem;
+    color: ab.$on-surface-variant;
+    margin-top: ab.$unit * 2;
+    max-width: 600px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: ab.$gutter;
+    margin-top: ab.$unit * 6;
+  }
+
+  &__member {
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(63, 63, 70, 0.1);
+    border-radius: 20px;
+    padding: ab.$unit * 5;
+
+    h3 {
+      font-family: ab.$primary-font;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: ab.$on-surface;
+      margin: ab.$unit * 3 0 0;
+    }
+
+    p {
+      font-family: ab.$secondary-font;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: ab.$on-surface-variant;
+      margin: ab.$unit * 2 0 0;
+    }
+  }
+
+  &__photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: ab.$surface-container-high;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__role {
+    display: block;
+    font-family: ab.$secondary-font;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$primary-lime;
+    margin-top: ab.$unit;
+  }
+}
+
+// ─── 6. Commitment ────────────────────────────────────────────────
+.somos-commitment {
+  padding: ab.$unit * 10 0;
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1rem;
+    color: ab.$on-surface-variant;
+    margin-top: ab.$unit * 2;
+    max-width: 600px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: ab.$gutter;
+    margin-top: ab.$unit * 6;
+  }
+
+  &__card {
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(63, 63, 70, 0.1);
+    border-radius: 20px;
+    padding: ab.$unit * 5;
+
+    h3 {
+      font-family: ab.$primary-font;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: ab.$on-surface;
+      margin: ab.$unit * 3 0 0;
+    }
+
+    p {
+      font-family: ab.$secondary-font;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: ab.$on-surface-variant;
+      margin: ab.$unit * 2 0 0;
+    }
+  }
+
+  &__icon {
+    font-size: 28px;
+    color: ab.$secondary-cyan;
+  }
+}
+
+// ─── 7. Teachers ──────────────────────────────────────────────────
+.somos-teachers {
+  padding: ab.$unit * 10 0;
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1rem;
+    color: ab.$on-surface-variant;
+    margin-top: ab.$unit * 2;
+    max-width: 600px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: ab.$gutter;
+    margin-top: ab.$unit * 6;
+  }
+
+  &__card {
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(63, 63, 70, 0.1);
+    border-radius: 20px;
+    padding: ab.$unit * 5;
+
+    h3 {
+      font-family: ab.$primary-font;
+      font-size: 1rem;
+      font-weight: 600;
+      color: ab.$on-surface;
+      margin: ab.$unit * 3 0 0;
+    }
+
+    p {
+      font-family: ab.$secondary-font;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: ab.$on-surface-variant;
+      margin: ab.$unit * 2 0 0;
+    }
+  }
+
+  &__photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: ab.$surface-container-high;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__role {
+    display: block;
+    font-family: ab.$secondary-font;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$secondary-cyan;
+    margin-top: ab.$unit;
+  }
+
+  &__stats {
+    display: flex;
+    gap: ab.$unit * 3;
+    margin-top: ab.$unit * 2;
+
+    span {
+      font-family: ab.$secondary-font;
+      font-size: 0.75rem;
+      color: ab.$on-surface-variant;
+
+      strong {
+        color: ab.$primary-lime;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+// ─── 9. Testimonials ──────────────────────────────────────────────
+.somos-testimonials {
+  padding: ab.$unit * 10 0;
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1rem;
+    color: ab.$on-surface-variant;
+    margin-top: ab.$unit * 2;
+    max-width: 600px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: ab.$gutter;
+    margin-top: ab.$unit * 6;
+  }
+
+  &__card {
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(63, 63, 70, 0.1);
+    border-radius: 20px;
+    padding: ab.$unit * 5;
+
+    h4 {
+      font-family: ab.$primary-font;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: ab.$on-surface;
+      margin: ab.$unit * 3 0 0;
+    }
+
+    p {
+      font-family: ab.$secondary-font;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: ab.$on-surface-variant;
+      margin: ab.$unit * 2 0 0;
+      font-style: italic;
+    }
+  }
+
+  &__photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: ab.$surface-container-high;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__transition {
+    display: flex;
+    align-items: center;
+    gap: ab.$unit * 2;
+    margin-top: ab.$unit * 3;
+    padding-top: ab.$unit * 3;
+    border-top: 1px solid rgba(63, 63, 70, 0.2);
+
+    span {
+      font-family: ab.$secondary-font;
+      font-size: 0.75rem;
+      color: ab.$on-surface-variant;
+
+      &:last-child {
+        color: ab.$primary-lime;
+        font-weight: 600;
+      }
+    }
+
+    .ri {
+      color: ab.$secondary-cyan;
+      font-size: 14px;
+    }
+  }
+}
+
+// ─── Mobile ───────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .somos-hero {
+    padding: ab.$unit * 8 ab.$container-padding-mobile ab.$unit * 6;
+    min-height: auto;
+  }
+
+  .somos-stats {
+    padding: ab.$unit * 8 ab.$container-padding-mobile;
+
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .somos-team {
+    padding: ab.$unit * 8 ab.$container-padding-mobile;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .somos-commitment {
+    padding: ab.$unit * 8 ab.$container-padding-mobile;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .somos-teachers {
+    padding: ab.$unit * 8 ab.$container-padding-mobile;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .somos-testimonials {
+    padding: ab.$unit * 8 ab.$container-padding-mobile;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__transition {
+      flex-wrap: wrap;
+    }
+  }
+
+  // Desactivar backdrop-filter en móvil — es muy costoso en GPU
+  .somos-stats__card,
+  .somos-team__member,
+  .somos-commitment__card,
+  .somos-teachers__card,
+  .somos-testimonials__card {
+    backdrop-filter: none;
+    background: rgba(24, 24, 27, 0.85);
+  }
+}
+
+// ─── Desktop ──────────────────────────────────────────────────────
+@media (min-width: 769px) {
+  .somos-hero {
+    padding: ab.$unit * 12 ab.$container-padding-desktop;
+
+    &__grid {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .somos-stats {
+    padding: ab.$unit * 12 ab.$container-padding-desktop;
+
+    &__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .somos-team {
+    padding: ab.$unit * 12 ab.$container-padding-desktop;
+  }
+
+  .somos-commitment {
+    padding: ab.$unit * 12 ab.$container-padding-desktop;
+  }
+
+  .somos-teachers {
+    padding: ab.$unit * 12 ab.$container-padding-desktop;
+  }
+
+  .somos-testimonials {
+    padding: ab.$unit * 12 ab.$container-padding-desktop;
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
