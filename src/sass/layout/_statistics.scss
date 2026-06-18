@@ -1,0 +1,98 @@
+@use "../abstracts" as ab;
+
+// ─── Animación de entrada ──────────────────────────────────────────
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ─── Sección ───────────────────────────────────────────────────────
+.statistics {
+  display: flex;
+  justify-content: center;
+  padding: ab.$unit * 6 0 ab.$unit * 5;
+
+  // ─── Container flex ─────────────────────────────────────────────
+  &__container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: ab.$gutter;
+  }
+
+  // ─── Glass card ─────────────────────────────────────────────────
+  &__card {
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(63, 63, 70, 0.1);
+    border-radius: 24px;
+    padding: ab.$unit * 5 ab.$unit * 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+
+    // Animación de entrada
+    animation: fadeSlideUp 0.6s ease-out both;
+
+    @include ab.on-event {
+      transform: scale(0.98);
+      box-shadow: 0 0 20px rgba(212, 255, 0, 0.15);
+    }
+  }
+
+  // ─── Número (dato) ──────────────────────────────────────────────
+  &__number {
+    font-family: ab.$primary-font;
+    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  // ─── Label (descripción) ────────────────────────────────────────
+  &__label {
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$on-surface-variant;
+    margin-top: ab.$unit * 1.5;
+  }
+}
+
+// ─── Mobile: cards apiladas ────────────────────────────────────────
+@media (max-width: 768px) {
+  .statistics {
+    padding: ab.$unit * 6 ab.$container-padding-mobile ab.$unit * 4;
+
+    &__container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &__card {
+      padding: ab.$unit * 4;
+      background: ab.$surface-container;
+      backdrop-filter: none;
+    }
+  }
+}
+
+// ─── Desktop: 3 columnas ──────────────────────────────────────────
+@media (min-width: 769px) {
+  .statistics {
+    padding: ab.$unit * 8 ab.$container-padding-desktop;
+  }
+}

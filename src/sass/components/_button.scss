@@ -1,13 +1,14 @@
+@use "sass:color";
 @use "../abstracts" as ab;
 
 // ─── Botón Primary ──────────────────────────────────────────────
-// Fondo lime (#D4FF00), texto negro, glow neon, uppercase
+// Fondo lime, texto negro, sin decoración excesiva
 .hero__buttons-access {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: ab.$unit * 2 ab.$unit * 3; // 16px 24px
-  min-height: 48px; // Touch target mínimo 44px (a11y)
+  padding: ab.$unit * 2 ab.$unit * 3;
+  min-height: 48px;
 
   font-family: ab.$secondary-font;
   font-size: 0.875rem;
@@ -22,37 +23,31 @@
   border-radius: ab.$radius-lg;
   cursor: pointer;
 
-  // Glow effect del DESIGN.md
-  box-shadow: 0 0 30px rgba(212, 255, 0, 0.25);
-
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.15s ease-out,
+    background-color 0.15s ease-out;
 
-  // Hover: intensificar el glow
   &:hover {
-    box-shadow: 0 0 40px rgba(212, 255, 0, 0.35);
+    background-color: color.adjust(ab.$primary-lime, $lightness: 22%);
   }
 
-  // Active: scale(0.95) según DESIGN.md
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
   }
 
-  // Focus visible: indicador de accesibilidad
   &:focus-visible {
     outline: 2px solid ab.$primary-lime;
     outline-offset: 2px;
   }
 }
 
-// ─── Botón Secondary / Glass ────────────────────────────────────
-// Fondo transparente con glass morphism, borde sutil
+// ─── Botón Secondary / Ghost ────────────────────────────────────
+// Fondo transparente, borde sutil, sin glass morphism decorativo
 .hero__buttons-info {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: ab.$unit * 2 ab.$unit * 3; // 16px 24px
+  padding: ab.$unit * 2 ab.$unit * 3;
   min-height: 48px;
 
   font-family: ab.$secondary-font;
@@ -62,32 +57,26 @@
   letter-spacing: 0.05em;
   text-decoration: none;
 
-  // Glass morphism: fondo semi-transparente + blur
-  background-color: rgba(24, 24, 27, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: transparent;
   color: ab.$on-surface;
-
-  // Borde sutil según DESIGN.md
-  border: 1px solid rgba(63, 63, 70, 0.3); // outline-variant (#3f3f46) con 30% opacidad
+  border: 1px solid ab.$outline-variant;
   border-radius: ab.$radius-lg;
   cursor: pointer;
 
   transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
+    background-color 0.15s ease-out,
+    border-color 0.15s ease-out,
+    transform 0.15s ease-out;
 
-  // Hover: surface-bright con opacidad
   &:hover {
-    background-color: rgba(63, 63, 70, 0.2); // surface-bright (#3f3f46) con 20% opacidad
+    background-color: ab.$surface-container;
+    border-color: ab.$outline;
   }
 
-  // Active: scale(0.95)
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
   }
 
-  // Focus visible: indicador de accesibilidad
   &:focus-visible {
     outline: 2px solid ab.$primary-lime;
     outline-offset: 2px;

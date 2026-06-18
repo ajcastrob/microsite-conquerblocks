@@ -1,16 +1,19 @@
 @use "../abstracts" as ab;
 
 .hero {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  min-height: 618px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // Reducido de 128px a 64px — el min-height ya crea el espacio vertical
-  padding: 20px 20px;
+  padding: ab.$unit * 6 0 ab.$unit * 4;
+
+  // ─── Wrapper: texto + imagen ──────────────────────────────────
+  & .container-hero {
+    display: flex;
+    flex-direction: column;
+    gap: ab.$gutter;
+    align-items: flex-start;
+  }
 
   // ─── Subtítulo Label MD ───────────────────────────────────────
   &__header-subtitle {
@@ -30,24 +33,15 @@
     font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
     line-height: 1.1;
     font-weight: 800;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     color: ab.$on-surface;
-    // Reset del margin que normalize agrega al h1
     margin: 0;
+    text-wrap: balance;
   }
 
-  // ─── Gradiente animado en "Stack" ─────────────────────────────
+  // ─── Acento sólido en "Stack" ────────────────────────────────
   &__header-span {
-    background: linear-gradient(
-      135deg,
-      ab.$primary-lime 0%,
-      ab.$secondary-cyan 100%
-    );
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradientStack 6s ease infinite;
+    color: ab.$primary-lime;
   }
 
   // ─── Descripción Body LG ──────────────────────────────────────
@@ -56,8 +50,24 @@
     font-size: 1.125rem;
     line-height: 1.75;
     color: ab.$on-surface-variant;
-    max-width: 520px;
+    max-width: 400px;
     margin-top: ab.$unit * 3;
+    text-wrap: pretty;
+  }
+
+  // ─── Imagen del hero ──────────────────────────────────────────
+  &__header-img {
+    margin: 0;
+    width: 100%;
+    min-width: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: ab.$radius-xl;
+      aspect-ratio: 16 / 10;
+    }
   }
 
   // ─── Contenedor de botones ────────────────────────────────────
@@ -69,28 +79,24 @@
   }
 }
 
-// ─── Keyframes: gradiente animado ────────────────────────────────
-@keyframes gradientStack {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-// ─── Responsive ─────────────────────────────────────────────────
+// ─── Mobile: apilado con padding ────────────────────────────────
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
-    // Spacing reducido en mobile: 48px arriba, 32px abajo
-    padding: ab.$unit * 6 0 ab.$unit * 4;
+    padding: ab.$unit * 6 ab.$container-padding-mobile ab.$unit * 4;
+
+    .container-hero {
+      align-items: center;
+    }
+
+    header {
+      display: inline-flex;
+      flex-direction: column;
+      max-width: 100%;
+      text-align: center;
+    }
 
     h1 {
-      // Escala más agresiva en mobile
       font-size: clamp(2rem, 10vw, 2.75rem);
       line-height: 1.15;
     }
@@ -102,12 +108,45 @@
     &__description {
       font-size: 1rem;
       line-height: 1.6;
+      max-width: 350px;
+    }
+
+    &__header-img {
+      margin-top: ab.$unit * 2;
     }
 
     &__buttons {
       flex-direction: column;
       align-items: stretch;
-      gap: ab.$unit * 1.5; // 12px
+      gap: ab.$unit * 1.5;
     }
+  }
+}
+
+// ─── Tablet+: imagen al lado del texto ──────────────────────────
+@media (min-width: 769px) {
+  .hero {
+    padding: ab.$unit * 8 ab.$container-padding-desktop;
+
+    &__description {
+      max-width: 350px;
+    }
+
+    .container-hero {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: ab.$unit * 8;
+    }
+  }
+
+  .hero__header {
+    flex: 1;
+  }
+
+  .hero__header-img {
+    flex: 0 1 480px;
+    align-self: flex-start;
+    padding-top: ab.$unit * 4;
   }
 }
