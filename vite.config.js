@@ -19,6 +19,7 @@ export default defineConfig({
         registro: resolve(__dirname, "src/pages/registro.html"),
         login: resolve(__dirname, "src/pages/login.html"),
         contacto: resolve(__dirname, "src/pages/contacto.html"),
+        fullstack: resolve(__dirname, "src/pages/fullstack.html"),
       },
     },
   },

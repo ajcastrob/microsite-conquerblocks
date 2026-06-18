@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../sass/main.scss" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="../main.js"></script>
+    <title>Conquerblocks — Máster Full Stack</title>
+  </head>
+  <body>
+    <header>
+      <navbar-conquer></navbar-conquer>
+    </header>
+
+    <main>
+      <!-- ─── 1. Hero ──────────────────────────────────────────── -->
+      <section class="fs-hero container">
+        <span class="fs-hero__badge">Máster Full-Stack</span>
+        <h1>
+          Conviértete en<br />
+          <span class="fs-hero__gradient">Full Stack Developer</span>
+        </h1>
+        <p class="fs-hero__description">
+          El Máster pensado para ti. Aprende desde cero todo el stack de
+          desarrollo web: frontend, backend, bases de datos y despliegue.
+          Con profesores de alta calidad y proyectos reales.
+        </p>
+        <div class="fs-hero__actions">
+          <a class="fs-hero__cta" href="/microsite-conquerblocks/pages/registro.html">
+            Inscribirme ahora
+            <i class="ri-arrow-right-line"></i>
+          </a>
+          <a class="fs-hero__ghost" href="#curriculum">
+            Ver temario
+            <i class="ri-book-open-line"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- ─── 2. Stats ─────────────────────────────────────────── -->
+      <section class="fs-stats container">
+        <div class="fs-stats__grid">
+          <div class="fs-stats__card">
+            <h3 class="fs-stats__number">24+</h3>
+            <span class="fs-stats__label">Módulos</span>
+          </div>
+          <div class="fs-stats__card">
+            <h3 class="fs-stats__number">180h</h3>
+            <span class="fs-stats__label">Contenido</span>
+          </div>
+          <div class="fs-stats__card">
+            <h3 class="fs-stats__number">98%</h3>
+            <span class="fs-stats__label">Éxito</span>
+          </div>
+          <div class="fs-stats__card">
+            <h3 class="fs-stats__number">7</h3>
+            <span class="fs-stats__label">Proyectos</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── 3. Featured ― "El más vendido" ───────────────────── -->
+      <section class="fs-featured container">
+        <div class="fs-featured__card">
+          <div class="fs-featured__image-wrapper">
+            <img
+              class="fs-featured__image"
+              src="https://cdn.prod.website-files.com/63c2c7b1f3d9c51c32335fb0/6638899bf329c1e6523d0c35_Full-Stack-Conquer-Blocks.avif"
+              alt="Máster Full Stack Conquerblocks"
+              loading="lazy"
+            />
+          </div>
+          <div class="fs-featured__content">
+            <span class="fs-featured__badge">Más vendido</span>
+            <h2>El máster más escogido</h2>
+            <p class="fs-featured__text">
+              Consigue la profesión de tus sueños aprendiendo a programar
+              desde cero. Nuestro enfoque práctico y mentoría en vivo te
+              garantizan resultados desde el primer día.
+            </p>
+            <div class="fs-featured__points">
+              <div class="fs-featured__point">
+                <i class="ri-live-line"></i>
+                <div>
+                  <strong>Online en vivo</strong>
+                  <span>Clases en directo con mentores expertos</span>
+                </div>
+              </div>
+              <div class="fs-featured__point">
+                <i class="ri-team-line"></i>
+                <div>
+                  <strong>Mentoría personalizada</strong>
+                  <span>Acompañamiento uno a uno durante todo el curso</span>
+                </div>
+              </div>
+              <div class="fs-featured__point">
+                <i class="ri-award-line"></i>
+                <div>
+                  <strong>Certificado oficial</strong>
+                  <span>Avalado por empresas del sector tech</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── 4. Curriculum ────────────────────────────────────── -->
+      <section class="fs-curriculum container" id="curriculum">
+        <div class="fs-curriculum__header">
+          <span class="fs-curriculum__subtitle">Temario</span>
+          <h2>Lo que aprenderás</h2>
+        </div>
+
+        <div class="fs-curriculum__grid">
+          <div class="fs-curriculum__card">
+            <i class="ri-code-s-slash-line"></i>
+            <h3 class="fs-curriculum__card-title">Frontend</h3>
+            <p class="fs-curriculum__card-text">
+              Domina HTML5, CSS3, JavaScript moderno y React. Crea interfaces
+              responsive, accesibles y con las mejores prácticas del
+              ecosistema frontend.
+            </p>
+            <ul class="fs-curriculum__topics">
+              <li>HTML5 / CSS3</li>
+              <li>JavaScript ES6+</li>
+              <li>React</li>
+              <li>Sass</li>
+              <li>Tailwind</li>
+            </ul>
+          </div>
+
+          <div class="fs-curriculum__card">
+            <i class="ri-server-line"></i>
+            <h3 class="fs-curriculum__card-title">Backend</h3>
+            <p class="fs-curriculum__card-text">
+              Construye APIs REST, maneja autenticación y autorización, y
+              trabaja con bases de datos relacionales y no relacionales.
+            </p>
+            <ul class="fs-curriculum__topics">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>APIs REST</li>
+              <li>Autenticación</li>
+              <li>WebSockets</li>
+            </ul>
+          </div>
+
+          <div class="fs-curriculum__card">
+            <i class="ri-database-2-line"></i>
+            <h3 class="fs-curriculum__card-title">Bases de datos</h3>
+            <p class="fs-curriculum__card-text">
+              Aprende a diseñar, modelar y consultar bases de datos SQL y
+              NoSQL. Optimiza queries y gestiona migraciones.
+            </p>
+            <ul class="fs-curriculum__topics">
+              <li>PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>SQL</li>
+              <li>Prisma ORM</li>
+              <li>Migraciones</li>
+            </ul>
+          </div>
+
+          <div class="fs-curriculum__card">
+            <i class="ri-cloud-line"></i>
+            <h3 class="fs-curriculum__card-title">DevOps & Despliegue</h3>
+            <p class="fs-curriculum__card-text">
+              Control de versiones, integración continua, despliegue en cloud
+              y monitorización. Lleva tus proyectos a producción.
+            </p>
+            <ul class="fs-curriculum__topics">
+              <li>Git / GitHub</li>
+              <li>CI/CD</li>
+              <li>Docker</li>
+              <li>Vercel</li>
+              <li>Cloud</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── 5. CTA Final ─────────────────────────────────────── -->
+      <section class="fs-cta container">
+        <div class="fs-cta__card">
+          <h2>¿Listo para convertirte en Full Stack?</h2>
+          <p class="fs-cta__text">
+            Únete a la comunidad de desarrolladores que ya están
+            transformando su futuro. Plazas limitadas.
+          </p>
+          <a class="fs-cta__btn" href="/microsite-conquerblocks/pages/registro.html">
+            Inscribirme ahora
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
