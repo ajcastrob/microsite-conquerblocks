@@ -1,0 +1,232 @@
+@use "../abstracts" as ab;
+
+// ─── 1. Hero ──────────────────────────────────────────────────────
+.registro-hero {
+  padding: ab.$unit * 10 0 ab.$unit * 6;
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &__subtitle {
+    display: block;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$primary-lime;
+    margin-bottom: ab.$unit * 2;
+  }
+
+  h1 {
+    font-family: ab.$primary-font;
+    font-size: clamp(2rem, 4vw + 1rem, 3rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: ab.$secondary-font;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: ab.$on-surface-variant;
+    max-width: 500px;
+    margin-top: ab.$unit * 3;
+  }
+}
+
+// ─── 2. Form ───────────────────────────────────────────────────────
+.registro-form {
+  padding: 0 0 ab.$unit * 12;
+
+  &__card {
+    background: rgba(ab.$surface-container, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(ab.$outline-variant, 0.15);
+    border-radius: 20px;
+    padding: ab.$unit * 6;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: ab.$unit * 6;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: ab.$unit * 4;
+  }
+
+  &__legend {
+    font-family: ab.$primary-font;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: ab.$on-surface;
+    padding-bottom: ab.$unit * 2;
+    border-bottom: 1px solid rgba(ab.$outline-variant, 0.2);
+    width: 100%;
+  }
+
+  &__row {
+    display: grid;
+    gap: ab.$gutter;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: ab.$unit * 1;
+  }
+
+  &__label {
+    font-family: ab.$secondary-font;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$on-surface-variant;
+  }
+
+  &__input {
+    font-family: ab.$secondary-font;
+    font-size: 0.9375rem;
+    color: ab.$on-surface;
+    background-color: ab.$surface-container-lowest;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: ab.$radius-xl;
+    padding: ab.$unit * 2 ab.$unit * 3;
+    transition:
+      border-color 0.2s ease-out,
+      box-shadow 0.2s ease-out;
+    outline: none;
+    width: 100%;
+
+    &::placeholder {
+      color: rgba(ab.$on-surface-variant, 0.4);
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: ab.$primary-lime;
+      box-shadow: 0 0 0 2px rgba(ab.$primary-lime, 0.15);
+    }
+  }
+
+  textarea.registro-form__input {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+  }
+
+  // ─── File input ──────────────────────────────────────────────
+  &__file-wrapper {
+    position: relative;
+  }
+
+  &__file-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  &__file-label {
+    display: flex;
+    align-items: center;
+    gap: ab.$unit * 2;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    color: ab.$on-surface-variant;
+    background-color: ab.$surface-container-lowest;
+    border: 1px dashed rgba(ab.$outline-variant, 0.3);
+    border-radius: ab.$radius-xl;
+    padding: ab.$unit * 2.5 ab.$unit * 3;
+    transition:
+      border-color 0.2s ease-out,
+      background-color 0.2s ease-out;
+    cursor: pointer;
+
+    i {
+      font-size: 1.25rem;
+      color: ab.$primary-lime;
+    }
+
+    .registro-form__file-input:hover + &,
+    .registro-form__file-input:focus + & {
+      border-color: ab.$primary-lime;
+      background-color: rgba(ab.$primary-lime, 0.05);
+    }
+  }
+
+  // ─── Submit ──────────────────────────────────────────────────
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: ab.$unit * 1.5;
+    padding: ab.$unit * 2.5 ab.$unit * 5;
+    min-height: 52px;
+    font-family: ab.$secondary-font;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: ab.$primary-lime;
+    color: ab.$on-primary;
+    border: none;
+    border-radius: ab.$radius-lg;
+    cursor: pointer;
+    transition: transform 0.15s ease-out;
+    width: fit-content;
+    box-shadow: 0 0 30px rgba(ab.$primary-lime, 0.25);
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    i {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+// ─── Responsive ────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .registro-hero {
+    padding: ab.$unit * 8 0 ab.$unit * 4;
+  }
+
+  .registro-form {
+    padding: 0 0 ab.$unit * 8;
+
+    &__card {
+      padding: ab.$unit * 4;
+    }
+
+    &__submit {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

@@ -79,10 +79,10 @@ export class NavbarConquer extends HTMLElement {
             <a href="/microsite-conquerblocks/pages/cursos.html" class="nav__link">Cursos</a>
           </li>
           <li>
-            <a href="#" class="nav__link">Blog</a>
+            <a href="/microsite-conquerblocks/pages/blog.html" class="nav__link">Blog</a>
           </li>
           <li>
-            <a href="#" class="nav__link">Registro</a>
+            <a href="/microsite-conquerblocks/pages/registro.html" class="nav__link">Registro</a>
           </li>
           <li>
             <a href="#" class="nav__link">Login</a>

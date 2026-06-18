@@ -1,0 +1,492 @@
+@use "../abstracts" as ab;
+
+// ─── 1. Hero ──────────────────────────────────────────────────────
+.blog-hero {
+  padding: ab.$unit * 10 0 ab.$unit * 6;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__badge-row {
+    display: flex;
+    align-items: center;
+    gap: ab.$unit * 2;
+    margin-bottom: ab.$unit * 3;
+  }
+
+  &__badge {
+    font-family: ab.$secondary-font;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: ab.$unit * 0.5 ab.$unit * 1.5;
+    border-radius: ab.$radius-full;
+    background-color: rgba(ab.$primary-lime, 0.15);
+    color: ab.$primary-lime;
+    border: 1px solid rgba(ab.$primary-lime, 0.25);
+    width: fit-content;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: ab.$unit * 1;
+
+    span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: ab.$primary-lime;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    small {
+      font-family: ab.$secondary-font;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: ab.$primary-lime;
+    }
+  }
+
+  h1 {
+    font-family: ab.$primary-font;
+    font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: ab.$on-surface;
+    margin: 0;
+    max-width: 800px;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: ab.$unit * 2.5;
+    margin-top: ab.$unit * 5;
+    padding-top: ab.$unit * 3;
+    border-top: 1px solid rgba(ab.$outline-variant, 0.2);
+  }
+
+  &__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, ab.$primary-lime, ab.$secondary-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ab.$primary-font;
+    font-size: 1rem;
+    font-weight: 700;
+    color: ab.$on-primary;
+    flex-shrink: 0;
+  }
+
+  &__author-info {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-family: ab.$secondary-font;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: ab.$on-surface;
+    }
+
+    span {
+      font-family: ab.$secondary-font;
+      font-size: 0.75rem;
+      color: ab.$on-surface-variant;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: ab.$unit * 1;
+    margin-top: ab.$unit * 3;
+
+    span {
+      font-family: ab.$secondary-font;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: ab.$on-surface-variant;
+      padding: ab.$unit * 0.25 ab.$unit * 1.5;
+      border-radius: ab.$radius-full;
+      background-color: rgba(ab.$surface-container-high, 0.5);
+      border: 1px solid rgba(ab.$outline-variant, 0.2);
+    }
+  }
+}
+
+// ─── 2. Cover Image ────────────────────────────────────────────────
+.blog-cover {
+  width: 100vw;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  margin: ab.$unit * 4 calc(-50vw + 50%);
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      ab.$background 0%,
+      transparent 30%,
+      transparent 65%,
+      ab.$background 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  &__caption {
+    position: absolute;
+    bottom: ab.$unit * 3;
+    left: ab.$unit * 3;
+    z-index: 3;
+    font-family: ab.$secondary-font;
+    font-size: 0.75rem;
+    color: rgba(ab.$on-surface, 0.6);
+    background: rgba(ab.$surface-container, 0.6);
+    backdrop-filter: blur(8px);
+    padding: ab.$unit * 0.5 ab.$unit * 2;
+    border-radius: ab.$radius-lg;
+  }
+}
+
+// ─── 3. Article Content ────────────────────────────────────────────
+.blog-article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: ab.$unit * 4 ab.$container-padding-mobile ab.$unit * 10;
+
+  &__section {
+    margin-bottom: ab.$unit * 10;
+    position: relative;
+  }
+
+  &__section-number {
+    position: absolute;
+    top: ab.$unit * -2;
+    left: ab.$unit * -6;
+    font-family: ab.$primary-font;
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(ab.$primary-lime, 0.04);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0 0 ab.$unit * 4;
+  }
+
+  p {
+    font-family: ab.$secondary-font;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: ab.$on-surface-variant;
+    margin: 0 0 ab.$unit * 4;
+  }
+
+  strong {
+    color: ab.$on-surface;
+  }
+
+  // ─── Quote / Highlight Card ────────────────────────────────────
+  &__highlight {
+    background: rgba(ab.$surface-container, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(ab.$outline-variant, 0.15);
+    border-left: 3px solid ab.$primary-lime;
+    border-radius: ab.$radius-xl;
+    padding: ab.$unit * 5;
+    margin: ab.$unit * 6 0;
+
+    p {
+      font-family: ab.$primary-font;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: ab.$on-surface;
+      margin: 0 0 ab.$unit * 2;
+    }
+
+    cite {
+      font-family: ab.$secondary-font;
+      font-size: 0.875rem;
+      font-style: normal;
+      color: ab.$on-surface-variant;
+    }
+  }
+
+  // ─── Code Block ────────────────────────────────────────────────
+  &__code-block {
+    background: ab.$surface-container-lowest;
+    border: 1px solid rgba(ab.$outline-variant, 0.15);
+    border-radius: ab.$radius-xl;
+    overflow: hidden;
+    margin: ab.$unit * 6 0;
+  }
+
+  &__code-header {
+    display: flex;
+    align-items: center;
+    gap: ab.$unit * 1;
+    padding: ab.$unit * 1.5 ab.$unit * 4;
+    border-bottom: 1px solid rgba(ab.$outline-variant, 0.1);
+
+    .blog-article__code-dots {
+      display: flex;
+      gap: 6px;
+
+      span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+
+        &:nth-child(1) {
+          background-color: rgba(239, 68, 68, 0.4);
+        }
+
+        &:nth-child(2) {
+          background-color: rgba(234, 179, 8, 0.4);
+        }
+
+        &:nth-child(3) {
+          background-color: rgba(34, 197, 94, 0.4);
+        }
+      }
+    }
+
+    small {
+      font-family: ab.$secondary-font;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: ab.$outline;
+      margin-left: auto;
+    }
+  }
+
+  &__code-body {
+    padding: ab.$unit * 4;
+    overflow-x: auto;
+    font-family: "Courier New", monospace;
+    font-size: 0.8125rem;
+    line-height: 1.7;
+    color: ab.$on-surface-variant;
+
+    .kw {
+      color: ab.$secondary-cyan;
+    }
+
+    .fn {
+      color: ab.$primary-lime;
+    }
+
+    .cm {
+      color: ab.$outline;
+      font-style: italic;
+    }
+
+    .str {
+      color: #68fcbf;
+    }
+
+    .num {
+      color: #f472b6;
+    }
+  }
+}
+
+// ─── 4. CTA Final ──────────────────────────────────────────────────
+.blog-cta {
+  padding: ab.$unit * 6 ab.$container-padding-mobile ab.$unit * 12;
+
+  &__card {
+    background: rgba(ab.$surface-container, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(ab.$outline-variant, 0.2);
+    border-radius: 20px;
+    padding: ab.$unit * 10 ab.$unit * 6;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(ab.$primary-lime, 0.08);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 300px;
+      height: 300px;
+      background: rgba(ab.$primary-lime, 0.05);
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+    }
+  }
+
+  h2 {
+    font-family: ab.$primary-font;
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+
+  &__text {
+    font-family: ab.$secondary-font;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: ab.$on-surface-variant;
+    max-width: 480px;
+    margin: ab.$unit * 3 auto 0;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: ab.$unit * 1.5;
+    margin-top: ab.$unit * 5;
+    padding: ab.$unit * 2.5 ab.$unit * 5;
+    min-height: 52px;
+    font-family: ab.$secondary-font;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: ab.$primary-lime;
+    color: ab.$on-primary;
+    border: none;
+    border-radius: ab.$radius-lg;
+    cursor: pointer;
+    transition: transform 0.15s ease-out;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 30px rgba(ab.$primary-lime, 0.25);
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    i {
+      font-size: 1.25rem;
+      transition: transform 0.2s ease-out;
+    }
+
+    &:hover i {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// ─── Keyframes ─────────────────────────────────────────────────────
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+// ─── Responsive ────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .blog-hero {
+    padding: ab.$unit * 8 0 ab.$unit * 4;
+
+    h1 {
+      font-size: clamp(1.5rem, 6vw + 0.5rem, 2.25rem);
+    }
+
+    &__badge-row {
+      flex-wrap: wrap;
+    }
+  }
+
+  .blog-cover {
+    height: 240px;
+    margin: ab.$unit * 3 calc(-50vw + 50%);
+  }
+
+  .blog-article {
+    padding: ab.$unit * 3 ab.$container-padding-mobile ab.$unit * 8;
+
+    &__section-number {
+      display: none;
+    }
+
+    &__highlight {
+      padding: ab.$unit * 4;
+
+      p {
+        font-size: 1.0625rem;
+      }
+    }
+
+    &__code-body {
+      font-size: 0.75rem;
+      padding: ab.$unit * 3;
+    }
+  }
+
+  .blog-cta {
+    padding: ab.$unit * 4 ab.$container-padding-mobile ab.$unit * 8;
+
+    &__card {
+      padding: ab.$unit * 6 ab.$unit * 4;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .blog-article {
+    padding: ab.$unit * 6 0 ab.$unit * 12;
+  }
+
+  .blog-cta {
+    padding: ab.$unit * 6 0 ab.$unit * 12;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-article {
+    &__section-number {
+      left: ab.$unit * -8;
+      font-size: 6rem;
+    }
+  }
+}

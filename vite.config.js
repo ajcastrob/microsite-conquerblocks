@@ -15,6 +15,8 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
         somos: resolve(__dirname, "src/pages/somos.html"),
         cursos: resolve(__dirname, "src/pages/cursos.html"),
+        blog: resolve(__dirname, "src/pages/blog.html"),
+        registro: resolve(__dirname, "src/pages/registro.html"),
       },
     },
   },
