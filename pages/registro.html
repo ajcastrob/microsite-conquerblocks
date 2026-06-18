@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Conquerblocks — Registro</title>
+    <script type="module" crossorigin src="/microsite-conquerblocks/assets/main-Ds6z8huJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/microsite-conquerblocks/assets/main-Cas6FL4i.css">
+  </head>
+  <body>
+    <header>
+      <navbar-conquer></navbar-conquer>
+    </header>
+
+    <main>
+      <!-- ─── 1. Hero ──────────────────────────────────────────── -->
+      <section class="registro-hero container">
+        <span class="registro-hero__subtitle">Comienza tu viaje</span>
+        <h1>Registro</h1>
+        <p class="registro-hero__description">
+          Completa tus datos para acceder a los cursos, recursos y la
+          comunidad de Conquerblocks.
+        </p>
+      </section>
+
+      <!-- ─── 2. Form ──────────────────────────────────────────── -->
+      <section class="registro-form container">
+        <div class="registro-form__card">
+          <form action="/" name="registro" method="post">
+            <fieldset>
+              <legend class="registro-form__legend">Datos personales</legend>
+
+              <div class="registro-form__row">
+                <div class="registro-form__field">
+                  <label class="registro-form__label" for="first_name"
+                    >Nombres</label
+                  >
+                  <input
+                    class="registro-form__input"
+                    type="text"
+                    name="first_name"
+                    id="first_name"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+                <div class="registro-form__field">
+                  <label class="registro-form__label" for="last_name"
+                    >Apellidos</label
+                  >
+                  <input
+                    class="registro-form__input"
+                    type="text"
+                    name="last_name"
+                    id="last_name"
+                    placeholder="Tus apellidos"
+                  />
+                </div>
+              </div>
+
+              <div class="registro-form__field">
+                <label class="registro-form__label" for="birthdate"
+                  >Fecha de nacimiento</label
+                >
+                <input
+                  class="registro-form__input"
+                  type="date"
+                  name="birthdate"
+                  id="birthdate"
+                />
+              </div>
+
+              <div class="registro-form__field">
+                <label class="registro-form__label" for="mail"
+                  >Correo electrónico</label
+                >
+                <input
+                  class="registro-form__input"
+                  type="email"
+                  name="mail"
+                  id="mail"
+                  placeholder="example@gmail.com"
+                />
+              </div>
+
+              <div class="registro-form__field">
+                <label class="registro-form__label" for="dir"
+                  >Dirección</label
+                >
+                <textarea
+                  class="registro-form__input"
+                  name="dir"
+                  id="dir"
+                  rows="4"
+                  placeholder="Tu dirección completa"
+                ></textarea>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class="registro-form__legend">Datos adicionales</legend>
+
+              <div class="registro-form__field">
+                <label class="registro-form__label" for="web"
+                  >Tu sitio web</label
+                >
+                <input
+                  class="registro-form__input"
+                  type="url"
+                  name="web"
+                  id="web"
+                  placeholder="https://www.ejemplo.com"
+                />
+              </div>
+
+              <div class="registro-form__field">
+                <label class="registro-form__label" for="photo"
+                  >Sube tu foto</label
+                >
+                <div class="registro-form__file-wrapper">
+                  <input
+                    class="registro-form__file-input"
+                    type="file"
+                    name="photo"
+                    id="photo"
+                    accept="image/*"
+                  />
+                  <div class="registro-form__file-label">
+                    <i class="ri-upload-line"></i>
+                    <span>Seleccionar archivo</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="registro-form__field">
+                <label class="registro-form__label" for="bio"
+                  >Biografía corta</label
+                >
+                <textarea
+                  class="registro-form__input"
+                  name="bio"
+                  id="bio"
+                  rows="4"
+                  placeholder="Cuéntanos brevemente sobre ti"
+                ></textarea>
+              </div>
+            </fieldset>
+
+            <button class="registro-form__submit" type="submit">
+              Enviar registro
+              <i class="ri-arrow-right-line"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
