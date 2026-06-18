@@ -1,0 +1,215 @@
+@use "../abstracts" as ab;
+
+// ─── 1. Hero ──────────────────────────────────────────────────────
+.login-hero {
+  padding: ab.$unit * 10 0 ab.$unit * 4;
+  min-height: 25vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &__subtitle {
+    display: block;
+    font-family: ab.$secondary-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$primary-lime;
+    margin-bottom: ab.$unit * 2;
+  }
+
+  h1 {
+    font-family: ab.$primary-font;
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: ab.$on-surface;
+    margin: 0;
+  }
+}
+
+// ─── 2. Form ───────────────────────────────────────────────────────
+.login-form {
+  padding: 0 0 ab.$unit * 12;
+  display: flex;
+  justify-content: center;
+
+  &__card {
+    background: rgba(ab.$surface-container, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(ab.$outline-variant, 0.15);
+    border-radius: 20px;
+    padding: ab.$unit * 6;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(ab.$primary-lime, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto ab.$unit * 4;
+
+    i {
+      font-size: 1.5rem;
+      color: ab.$primary-lime;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: ab.$unit * 4;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: ab.$unit * 1;
+    text-align: left;
+  }
+
+  &__label {
+    font-family: ab.$secondary-font;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: ab.$on-surface-variant;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    i {
+      position: absolute;
+      left: ab.$unit * 3;
+      font-size: 1.125rem;
+      color: rgba(ab.$on-surface-variant, 0.4);
+      pointer-events: none;
+    }
+  }
+
+  &__input {
+    font-family: ab.$secondary-font;
+    font-size: 0.9375rem;
+    color: ab.$on-surface;
+    background-color: ab.$surface-container-lowest;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: ab.$radius-xl;
+    padding: ab.$unit * 2 ab.$unit * 3 ab.$unit * 2 (ab.$unit * 5);
+    width: 100%;
+    outline: none;
+    transition:
+      border-color 0.2s ease-out,
+      box-shadow 0.2s ease-out;
+
+    &::placeholder {
+      color: rgba(ab.$on-surface-variant, 0.4);
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: ab.$primary-lime;
+      box-shadow: 0 0 0 2px rgba(ab.$primary-lime, 0.15);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: ab.$unit * 3;
+    margin-top: ab.$unit * 1;
+  }
+
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: ab.$unit * 1.5;
+    padding: ab.$unit * 2.5 ab.$unit * 5;
+    min-height: 52px;
+    font-family: ab.$secondary-font;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: ab.$primary-lime;
+    color: ab.$on-primary;
+    border: none;
+    border-radius: ab.$radius-lg;
+    cursor: pointer;
+    transition: transform 0.15s ease-out;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(ab.$primary-lime, 0.25);
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    i {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__forgot {
+    font-family: ab.$secondary-font;
+    font-size: 0.8125rem;
+    color: ab.$on-surface-variant;
+    text-decoration: none;
+    transition: color 0.2s ease-out;
+
+    &:hover {
+      color: ab.$primary-lime;
+    }
+  }
+
+  &__register {
+    font-family: ab.$secondary-font;
+    font-size: 0.8125rem;
+    color: ab.$on-surface-variant;
+    margin-top: ab.$unit * 2;
+
+    a {
+      color: ab.$primary-lime;
+      text-decoration: none;
+      font-weight: 700;
+      transition: opacity 0.2s ease-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// ─── Responsive ────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .login-hero {
+    padding: ab.$unit * 8 0 ab.$unit * 3;
+
+    h1 {
+      font-size: clamp(1.5rem, 5vw + 0.5rem, 2rem);
+    }
+  }
+
+  .login-form {
+    padding: 0 0 ab.$unit * 8;
+
+    &__card {
+      padding: ab.$unit * 4;
+    }
+  }
+}

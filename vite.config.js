@@ -17,6 +17,8 @@ export default defineConfig({
         cursos: resolve(__dirname, "src/pages/cursos.html"),
         blog: resolve(__dirname, "src/pages/blog.html"),
         registro: resolve(__dirname, "src/pages/registro.html"),
+        login: resolve(__dirname, "src/pages/login.html"),
+        contacto: resolve(__dirname, "src/pages/contacto.html"),
       },
     },
   },
