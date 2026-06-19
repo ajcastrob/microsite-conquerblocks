@@ -44,10 +44,6 @@ body {
 
 a {
   text-decoration: none;
-
-  @include ab.on-event {
-    text-decoration: underline;
-  }
 }
 
 img,

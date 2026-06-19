@@ -37,6 +37,7 @@
   // ─── Grid principal ─────────────────────────────────────────────
   &__grid {
     display: grid;
+    grid-template-columns: 1fr;
     gap: ab.$gutter;
     margin-top: ab.$unit * 4;
   }
@@ -239,6 +240,7 @@
     overflow: hidden;
     background: ab.$surface-container-high;
     position: relative;
+    min-width: 0;
 
     img {
       width: 100%;
