@@ -181,29 +181,11 @@
 
   // ─── Submit ──────────────────────────────────────────────────
   &__submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: ab.$unit * 1.5;
+    @extend %btn-primary;
     padding: ab.$unit * 2.5 ab.$unit * 5;
     min-height: 52px;
-    font-family: ab.$secondary-font;
     font-size: 0.9375rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: ab.$primary-lime;
-    color: ab.$on-primary;
-    border: none;
-    border-radius: ab.$radius-lg;
-    cursor: pointer;
-    transition: transform 0.15s ease-out;
     width: fit-content;
-    box-shadow: 0 0 30px rgba(ab.$primary-lime, 0.25);
-
-    &:active {
-      transform: scale(0.97);
-    }
 
     i {
       font-size: 1.25rem;

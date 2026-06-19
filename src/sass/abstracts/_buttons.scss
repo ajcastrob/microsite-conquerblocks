@@ -1,0 +1,72 @@
+@use "sass:color";
+@use "variables" as v;
+
+// ─── Botón Base ────────────────────────────────────────────────────
+%btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$unit * 1.5;
+  font-family: v.$secondary-font;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: v.$radius-xl;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.2s ease;
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &:focus-visible {
+    outline: 2px solid v.$primary-lime;
+    outline-offset: 2px;
+  }
+
+  .ri {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+}
+
+// ─── Botón Primary (lime, glow) ────────────────────────────────────
+%btn-primary {
+  @extend %btn-base;
+  font-weight: 700;
+  background-color: v.$primary-lime;
+  color: v.$on-primary;
+  box-shadow:
+    0 0 24px rgba(v.$primary-lime, 0.2),
+    0 4px 12px rgba(v.$primary-lime, 0.1);
+
+  &:hover {
+    background-color: color.adjust(v.$primary-lime, $lightness: 18%);
+    box-shadow:
+      0 0 40px rgba(v.$primary-lime, 0.35),
+      0 6px 20px rgba(v.$primary-lime, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .ri {
+    font-size: 18px;
+  }
+}
+
+// ─── Botón Ghost (transparente, borde) ────────────────────────────
+%btn-ghost {
+  @extend %btn-base;
+  font-weight: 600;
+  background-color: transparent;
+  color: v.$on-surface;
+  border: 1px solid rgba(63, 63, 70, 0.3);
+
+  &:hover {
+    background-color: rgba(24, 24, 27, 0.6);
+    border-color: v.$outline;
+    transform: translateY(-1px);
+  }
+}

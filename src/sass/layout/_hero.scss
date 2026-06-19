@@ -1,135 +1,259 @@
 @use "../abstracts" as ab;
 
+// ─── Animaciones ────────────────────────────────────────────────────
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes heroGlow {
+  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── Sección Hero ───────────────────────────────────────────────────
 .hero {
-  min-height: 300px;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: ab.$unit * 6 0 ab.$unit * 4;
+  position: relative;
+  overflow: hidden;
 
-  // ─── Wrapper: texto + imagen ──────────────────────────────────
-  & .container-hero {
+  // ─── Rejilla geométrica de fondo ───────────────────────────────
+  // Crea una cuadrícula técnica sutil que evoca planos y terminales.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+    pointer-events: none;
+  }
+
+  // ─── Glow ambiental ────────────────────────────────────────────
+  // Un halo luminoso detrás del contenido que da profundidad.
+  &::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(ab.$primary-lime, 0.08) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: heroGlow 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  // ─── Wrapper: texto + imagen ────────────────────────────────────
+  .container-hero {
     display: flex;
     flex-direction: column;
     gap: ab.$gutter;
     align-items: flex-start;
+    position: relative;
+    z-index: 1;
   }
 
-  // ─── Subtítulo Label MD ───────────────────────────────────────
+  // ─── Subtítulo (badge) ──────────────────────────────────────────
   &__header-subtitle {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-family: ab.$secondary-font;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: ab.$on-surface-variant;
+    letter-spacing: 0.12em;
+    color: ab.$primary-lime;
+    background: rgba(ab.$primary-lime, 0.08);
+    border: 1px solid rgba(ab.$primary-lime, 0.2);
+    border-radius: ab.$radius-full;
+    padding: 6px 16px;
     margin-bottom: ab.$unit;
+    width: fit-content;
+
+    // Iconito decorativo antes del texto
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: ab.$primary-lime;
+      box-shadow: 0 0 8px rgba(ab.$primary-lime, 0.5);
+      animation: pulse 2s ease-in-out infinite;
+    }
   }
 
-  // ─── Título Display XL ────────────────────────────────────────
+  // ─── Título Display XL ──────────────────────────────────────────
   h1 {
     font-family: ab.$primary-font;
-    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
-    line-height: 1.1;
+    font-size: clamp(2.75rem, 6vw + 1rem, 5.5rem);
+    line-height: 1.05;
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     color: ab.$on-surface;
     margin: 0;
     text-wrap: balance;
+
+    .hero__header-span {
+      background: linear-gradient(
+        270deg,
+        ab.$primary-lime,
+        ab.$secondary-cyan,
+        ab.$primary-lime
+      );
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite;
+    }
   }
 
-  // ─── Acento sólido en "Stack" ────────────────────────────────
-  &__header-span {
-    color: ab.$primary-lime;
-  }
-
-  // ─── Descripción Body LG ──────────────────────────────────────
+  // ─── Descripción Body LG ────────────────────────────────────────
   &__description {
     font-family: ab.$secondary-font;
     font-size: 1.125rem;
     line-height: 1.75;
     color: ab.$on-surface-variant;
-    max-width: 400px;
-    margin-top: ab.$unit * 3;
+    max-width: 420px;
+    margin-top: ab.$unit * 2;
     text-wrap: pretty;
   }
 
-  // ─── Imagen del hero ──────────────────────────────────────────
+  // ─── Imagen del hero ────────────────────────────────────────────
   &__header-img {
     margin: 0;
     width: 100%;
     min-width: 0;
+    position: relative;
+
+    // Borde decorativo — like a high-end product shot
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(ab.$radius-2xl + 2px);
+      background: linear-gradient(
+        135deg,
+        rgba(ab.$primary-lime, 0.3),
+        rgba(ab.$secondary-cyan, 0.1),
+        transparent 60%
+      );
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
 
     img {
       width: 100%;
       height: auto;
       object-fit: cover;
-      border-radius: ab.$radius-xl;
+      border-radius: ab.$radius-2xl;
       aspect-ratio: 16 / 10;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:hover img {
+      transform: scale(1.02);
     }
   }
 
-  // ─── Contenedor de botones ────────────────────────────────────
+  // ─── Contenedor de botones ──────────────────────────────────────
   &__buttons {
     display: flex;
     align-items: center;
     gap: ab.$gutter;
-    margin-top: ab.$unit * 5;
+    margin-top: ab.$unit * 6;
   }
 }
 
-// ─── Mobile: apilado con padding ────────────────────────────────
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+// ─── Mobile ─────────────────────────────────────────────────────────
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
-    padding: ab.$unit * 6 ab.$container-padding-mobile ab.$unit * 4;
+    padding: ab.$unit * 6 ab.$container-padding-mobile ab.$unit * 6;
+
+    &::before {
+      background-size: 32px 32px;
+    }
+
+    &::after {
+      width: 300px;
+      height: 200px;
+    }
 
     .container-hero {
-      align-items: center;
+      align-items: stretch;
+      gap: ab.$unit * 3;
     }
 
     header {
-      display: inline-flex;
+      display: flex;
       flex-direction: column;
       max-width: 100%;
-      text-align: center;
     }
 
     h1 {
       font-size: clamp(2rem, 10vw, 2.75rem);
-      line-height: 1.15;
+      line-height: 1.1;
+      margin: ab.$unit * 2 0 0;
     }
 
     &__header-subtitle {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
+      padding: 4px 12px;
+      margin-bottom: 0;
     }
 
     &__description {
       font-size: 1rem;
       line-height: 1.6;
-      max-width: 350px;
+      max-width: 100%;
+      margin-top: ab.$unit * 2;
     }
 
     &__header-img {
-      margin-top: ab.$unit * 2;
+      margin-top: 0;
     }
 
     &__buttons {
       flex-direction: column;
       align-items: stretch;
-      gap: ab.$unit * 1.5;
+      gap: ab.$unit * 2;
+      margin-top: ab.$unit * 4;
     }
   }
 }
 
-// ─── Tablet+: imagen al lado del texto ──────────────────────────
+// ─── Tablet+ ────────────────────────────────────────────────────────
 @media (min-width: 769px) {
   .hero {
     padding: ab.$unit * 8 ab.$container-padding-desktop;
 
     &__description {
-      max-width: 350px;
+      max-width: 380px;
     }
 
     .container-hero {
@@ -145,7 +269,7 @@
   }
 
   .hero__header-img {
-    flex: 0 1 480px;
+    flex: 0 1 500px;
     align-self: flex-start;
     padding-top: ab.$unit * 4;
   }

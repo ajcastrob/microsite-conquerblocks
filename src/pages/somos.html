@@ -11,18 +11,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@100..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Epilogue:wght@100..900&display=swap"
       rel="stylesheet"
     />
     <script type="module" src="../main.js"></script>
     <title>Conquerblocks — Sobre Nosotros</title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header>
       <navbar-conquer></navbar-conquer>
     </header>
 
-    <main>
+    <main id="main-content">
       <!-- 1. Hero -->
       <section class="somos-hero container">
         <div class="somos-hero__content">
@@ -53,22 +54,22 @@
           tenido en la vida de nuestros estudiantes.
         </p>
         <div class="somos-stats__grid">
-          <article class="somos-stats__card">
+          <article class="somos-stats__card" data-reveal>
             <i class="ri-user-line somos-stats__icon"></i>
             <h3>+5,000</h3>
             <span>Graduados empleados</span>
           </article>
-          <article class="somos-stats__card">
+          <article class="somos-stats__card" data-reveal>
             <i class="ri-earth-line somos-stats__icon"></i>
             <h3>+20</h3>
             <span>Países representados</span>
           </article>
-          <article class="somos-stats__card">
+          <article class="somos-stats__card" data-reveal>
             <i class="ri-heart-pulse-line somos-stats__icon"></i>
             <h3>4.8★</h3>
             <span>Valoración media</span>
           </article>
-          <article class="somos-stats__card">
+          <article class="somos-stats__card" data-reveal>
             <i class="ri-trophy-line somos-stats__icon"></i>
             <h3>92%</h3>
             <span>Consiguen empleo en 6 meses</span>
@@ -85,7 +86,7 @@
           experiencia en educación y en el mundo tech.
         </p>
         <div class="somos-team__grid">
-          <article class="somos-team__member">
+          <article class="somos-team__member" data-reveal>
             <div class="somos-team__photo">
               <img
                 loading="lazy"
@@ -100,7 +101,7 @@
               un impacto real en la empleabilidad de nuestros alumnos.
             </p>
           </article>
-          <article class="somos-team__member">
+          <article class="somos-team__member" data-reveal>
             <div class="somos-team__photo">
               <img
                 loading="lazy"
@@ -116,7 +117,7 @@
               Locas.
             </p>
           </article>
-          <article class="somos-team__member">
+          <article class="somos-team__member" data-reveal>
             <div class="somos-team__photo">
               <img
                 loading="lazy"
@@ -144,7 +145,7 @@
           para lograr la estabilidad y el crecimiento salarial que mereces.
         </p>
         <div class="somos-commitment__grid">
-          <article class="somos-commitment__card">
+          <article class="somos-commitment__card" data-reveal>
             <i class="ri-bank-card-line somos-commitment__icon"></i>
             <h3>Plan de pago flexible</h3>
             <p>
@@ -152,7 +153,7 @@
               debe ser aprender, no el dinero.
             </p>
           </article>
-          <article class="somos-commitment__card">
+          <article class="somos-commitment__card" data-reveal>
             <i class="ri-briefcase-line somos-commitment__icon"></i>
             <h3>Red de empresas aliadas</h3>
             <p>
@@ -160,7 +161,7 @@
               nuestros egresados para cubrir puestos tech.
             </p>
           </article>
-          <article class="somos-commitment__card">
+          <article class="somos-commitment__card" data-reveal>
             <i class="ri-customer-service-2-line somos-commitment__icon"></i>
             <h3>Mentorías 1 a 1</h3>
             <p>
@@ -168,7 +169,7 @@
               en la industria para resolver tus dudas.
             </p>
           </article>
-          <article class="somos-commitment__card">
+          <article class="somos-commitment__card" data-reveal>
             <i class="ri-time-line somos-commitment__icon"></i>
             <h3>Estudia cuando quieras</h3>
             <p>
@@ -187,7 +188,7 @@
           nivel internacional
         </p>
         <div class="somos-teachers__grid">
-          <article class="somos-teachers__card">
+          <article class="somos-teachers__card" data-reveal>
             <div class="somos-teachers__photo">
               <img
                 loading="lazy"
@@ -207,7 +208,7 @@
               español.
             </p>
           </article>
-          <article class="somos-teachers__card">
+          <article class="somos-teachers__card" data-reveal>
             <div class="somos-teachers__photo">
               <img
                 loading="lazy"
@@ -226,7 +227,7 @@
               divulgador. Experiencia en Inditex, Indra y Altia.
             </p>
           </article>
-          <article class="somos-teachers__card">
+          <article class="somos-teachers__card" data-reveal>
             <div class="somos-teachers__photo">
               <img
                 loading="lazy"
@@ -236,7 +237,7 @@
             </div>
             <div class="somos-teachers__stats">
               <span><strong>18</strong> años exp.</span>
-              <span><strong>16</strong> años docente</span>
+              <span><strong>8</strong> años docente</span>
             </div>
             <h3>Bienvenido Sáez</h3>
             <span class="somos-teachers__role">Programador especializado</span>
@@ -245,7 +246,7 @@
               de la web: HTML, CSS, JavaScript y Django.
             </p>
           </article>
-          <article class="somos-teachers__card">
+          <article class="somos-teachers__card" data-reveal>
             <div class="somos-teachers__photo">
               <img
                 loading="lazy"
@@ -255,7 +256,7 @@
             </div>
             <div class="somos-teachers__stats">
               <span><strong>18</strong> años exp.</span>
-              <span><strong>12</strong> años docente</span>
+              <span><strong>8</strong> años docente</span>
             </div>
             <h3>Chema Alonso</h3>
             <span class="somos-teachers__role">Experto en Ciberseguridad</span>
@@ -275,7 +276,7 @@
           su futuro profesional
         </p>
         <div class="somos-testimonials__grid">
-          <article class="somos-testimonials__card">
+          <article class="somos-testimonials__card" data-reveal>
             <div class="somos-testimonials__photo">
               <img
                 loading="lazy"
@@ -294,7 +295,7 @@
               <span>Ahora: Full Stack Developer</span>
             </div>
           </article>
-          <article class="somos-testimonials__card">
+          <article class="somos-testimonials__card" data-reveal>
             <div class="somos-testimonials__photo">
               <img
                 loading="lazy"
@@ -314,7 +315,7 @@
               <span>Ahora: Desarrollador Blockchain</span>
             </div>
           </article>
-          <article class="somos-testimonials__card">
+          <article class="somos-testimonials__card" data-reveal>
             <div class="somos-testimonials__photo">
               <img
                 loading="lazy"
@@ -333,7 +334,7 @@
               <span>Ahora: Full Stack Developer</span>
             </div>
           </article>
-          <article class="somos-testimonials__card">
+          <article class="somos-testimonials__card" data-reveal>
             <div class="somos-testimonials__photo">
               <img
                 loading="lazy"

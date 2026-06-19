@@ -14,6 +14,29 @@ export class NavbarConquer extends HTMLElement {
     await this.loadRemixIcons();
     this.render();
     this.setupToggle();
+    this.setActivePage();
+    this.setupScrollEffect();
+  }
+
+  setActivePage() {
+    const path = window.location.pathname;
+    const links = this.shadowRoot.querySelectorAll(".nav__link");
+
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && path.endsWith(href.replace("/microsite-conquerblocks", ""))) {
+        link.classList.add("nav__link--active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  }
+
+  setupScrollEffect() {
+    const updateScroll = () => {
+      this.classList.toggle("nav--scrolled", window.scrollY > 50);
+    };
+    window.addEventListener("scroll", updateScroll, { passive: true });
+    updateScroll();
   }
 
   async loadRemixIcons() {
@@ -35,8 +58,13 @@ export class NavbarConquer extends HTMLElement {
 
     if (toggle && menu) {
       toggle.addEventListener("click", () => {
-        menu.classList.toggle("show-menu");
+        const isOpen = menu.classList.toggle("show-menu");
         nav.classList.toggle("show-icon");
+        toggle.setAttribute("aria-expanded", isOpen);
+        toggle.setAttribute(
+          "aria-label",
+          isOpen ? "Cerrar menú" : "Abrir menú"
+        );
       });
 
       // Cerrar menu al hacer click en un link
@@ -45,6 +73,8 @@ export class NavbarConquer extends HTMLElement {
         link.addEventListener("click", () => {
           menu.classList.remove("show-menu");
           nav.classList.remove("show-icon");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Abrir menú");
         });
       });
     }
@@ -61,13 +91,13 @@ export class NavbarConquer extends HTMLElement {
           </span>
         </a>
 
-        <div class="nav__toogle" id="nav-toggle">
-          <i class="ri-menu-line nav__burger"></i>
-          <i class="ri-close-line nav__close"></i>
-        </div>
+        <button class="nav__toogle" id="nav-toggle" aria-label="Abrir menú" aria-controls="nav-menu">
+          <i class="ri-menu-line nav__burger" aria-hidden="true"></i>
+          <i class="ri-close-line nav__close" aria-hidden="true"></i>
+        </button>
       </div>
 
-      <div class="nav__menu" id="nav-menu">
+      <nav class="nav__menu" id="nav-menu" role="navigation" aria-label="Navegación principal">
         <ul class="nav__menu-ul">
           <li>
             <a href="/microsite-conquerblocks/index.html" class="nav__link">Inicio</a>
@@ -91,7 +121,7 @@ export class NavbarConquer extends HTMLElement {
             <a href="/microsite-conquerblocks/pages/contacto.html" class="nav__link">Contacto</a>
           </li>
         </ul>
-      </div>
+      </nav>
     </nav>
     `;
 

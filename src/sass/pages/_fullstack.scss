@@ -5,7 +5,7 @@
   padding: ab.$unit * 10 0 ab.$unit * 6;
   min-height: 60vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
 
@@ -32,7 +32,6 @@
     font-weight: 800;
     letter-spacing: -0.03em;
     margin: 0;
-    text-align: center;
 
     .fs-hero__gradient {
       background: linear-gradient(
@@ -63,29 +62,10 @@
   }
 
   &__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: ab.$unit * 1.5;
+    @extend %btn-primary;
     padding: ab.$unit * 2.5 ab.$unit * 5;
     min-height: 52px;
-    font-family: ab.$secondary-font;
     font-size: 0.9375rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: ab.$primary-lime;
-    color: ab.$on-primary;
-    border: none;
-    border-radius: ab.$radius-lg;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.15s ease-out;
-    width: fit-content;
-    box-shadow: 0 0 30px rgba(ab.$primary-lime, 0.25);
-
-    &:active {
-      transform: scale(0.97);
-    }
 
     i {
       font-size: 1.25rem;
@@ -93,36 +73,10 @@
   }
 
   &__ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: ab.$unit * 1.5;
+    @extend %btn-ghost;
     padding: ab.$unit * 2.5 ab.$unit * 5;
     min-height: 52px;
-    font-family: ab.$secondary-font;
     font-size: 0.9375rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: transparent;
-    color: ab.$on-surface;
-    border: 1px solid ab.$outline-variant;
-    border-radius: ab.$radius-lg;
-    cursor: pointer;
-    text-decoration: none;
-    transition:
-      background-color 0.15s ease-out,
-      border-color 0.15s ease-out,
-      transform 0.15s ease-out;
-    width: fit-content;
-
-    &:hover {
-      background-color: ab.$surface-container;
-      border-color: ab.$outline;
-    }
-
-    &:active {
-      transform: scale(0.97);
-    }
 
     i {
       font-size: 1.125rem;

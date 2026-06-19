@@ -8,6 +8,7 @@
 
   // Z-index
   --z-fixed: 100;
+  --z-overlay: 200;
   --header-height: 3.5rem;
 
   // Primary Colors
@@ -47,6 +48,8 @@
   --radius-default: #{ab.$radius-default};
   --radius-lg: #{ab.$radius-lg};
   --radius-xl: #{ab.$radius-xl};
+  --radius-2xl: #{ab.$radius-2xl};
+  --radius-3xl: #{ab.$radius-3xl};
   --radius-full: #{ab.$radius-full};
 
   // Spacing

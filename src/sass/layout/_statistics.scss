@@ -1,24 +1,22 @@
 @use "../abstracts" as ab;
 
-// ─── Animación de entrada ──────────────────────────────────────────
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+// ─── Animación ──────────────────────────────────────────────────────
+@keyframes statReveal {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-// ─── Sección ───────────────────────────────────────────────────────
+@keyframes statNumber {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── Sección Statistics ─────────────────────────────────────────────
 .statistics {
   display: flex;
   justify-content: center;
   padding: ab.$unit * 6 0 ab.$unit * 5;
 
-  // ─── Container flex ─────────────────────────────────────────────
   &__container {
     display: flex;
     width: 100%;
@@ -26,71 +24,125 @@
     gap: ab.$gutter;
   }
 
-  // ─── Glass card ─────────────────────────────────────────────────
+  // ─── Card estadística ──────────────────────────────────────────
   &__card {
-    background: rgba(24, 24, 27, 0.4);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(63, 63, 70, 0.1);
-    border-radius: 24px;
-    padding: ab.$unit * 5 ab.$unit * 4;
+    background: linear-gradient(
+      180deg,
+      rgba(24, 24, 27, 0.6) 0%,
+      rgba(24, 24, 27, 0.3) 100%
+    );
+    border: 1px solid rgba(63, 63, 70, 0.15);
+    border-radius: ab.$radius-2xl;
+    padding: ab.$unit * 6 ab.$unit * 5;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     flex: 1;
     min-width: 0;
+    position: relative;
+    overflow: hidden;
+    transition:
+      border-color 0.3s ease,
+      transform 0.3s ease;
 
-    // Animación de entrada
-    animation: fadeSlideUp 0.6s ease-out both;
+    // ─── Barra decorativa superior ───────────────────────────────
+    // Un detalle industrial que acentúa cada card.
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(ab.$primary-lime, 0.6),
+        transparent
+      );
+      border-radius: ab.$radius-full;
+      transition:
+        left 0.4s ease,
+        right 0.4s ease;
+    }
 
     @include ab.on-event {
-      transform: scale(0.98);
-      box-shadow: 0 0 20px rgba(212, 255, 0, 0.15);
+      border-color: rgba(ab.$primary-lime, 0.2);
+      transform: translateY(-4px);
+
+      &::before {
+        left: 10%;
+        right: 10%;
+      }
+    }
+
+    // Animación de entrada con IntersectionObserver
+    &.active {
+      animation: statReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
   }
 
-  // ─── Número (dato) ──────────────────────────────────────────────
+  // ─── Número (dato) ─────────────────────────────────────────────
   &__number {
     font-family: ab.$primary-font;
-    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
     font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: ab.$on-surface;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(
+      180deg,
+      ab.$on-surface 0%,
+      rgba(ab.$on-surface, 0.7) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0;
   }
 
-  // ─── Label (descripción) ────────────────────────────────────────
+  // ─── Label (descripción) ───────────────────────────────────────
   &__label {
     font-family: ab.$secondary-font;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     color: ab.$on-surface-variant;
-    margin-top: ab.$unit * 1.5;
+    margin-top: ab.$unit * 2;
+    position: relative;
+
+    // Pequeño separador decorativo
+    &::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: rgba(ab.$primary-lime, 0.4);
+      margin: ab.$unit * 1.5 auto 0;
+    }
   }
 }
 
-// ─── Mobile: cards apiladas ────────────────────────────────────────
+// ─── Mobile ─────────────────────────────────────────────────────────
 @media (max-width: 768px) {
   .statistics {
-    padding: ab.$unit * 6 ab.$container-padding-mobile ab.$unit * 4;
+    padding: ab.$unit * 4 ab.$container-padding-mobile ab.$unit * 6;
 
     &__container {
       flex-direction: column;
       align-items: stretch;
+      gap: ab.$unit * 2;
     }
 
     &__card {
-      padding: ab.$unit * 4;
-      background: ab.$surface-container;
-      backdrop-filter: none;
+      padding: ab.$unit * 5;
+      background: rgba(24, 24, 27, 0.6);
     }
   }
 }
 
-// ─── Desktop: 3 columnas ──────────────────────────────────────────
+// ─── Desktop ────────────────────────────────────────────────────────
 @media (min-width: 769px) {
   .statistics {
     padding: ab.$unit * 8 ab.$container-padding-desktop;

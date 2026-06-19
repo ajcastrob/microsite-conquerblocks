@@ -6,7 +6,7 @@
   min-height: 50vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   &__subtitle {
@@ -193,30 +193,11 @@
   }
 
   &__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: ab.$unit * 1.5;
+    @extend %btn-primary;
     margin-top: ab.$unit * 2;
     padding: ab.$unit * 2 ab.$unit * 4;
     min-height: 48px;
-    font-family: ab.$secondary-font;
     font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: ab.$primary-lime;
-    color: ab.$on-primary;
-    border: none;
-    border-radius: ab.$radius-lg;
-    cursor: pointer;
-    transition:
-      transform 0.15s ease-out,
-      box-shadow 0.15s ease-out;
-    width: fit-content;
-
-    &:active {
-      transform: scale(0.97);
-    }
 
     i {
       font-size: 1.125rem;
@@ -264,30 +245,14 @@
   }
 
   &__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: ab.$unit * 1.5;
+    @extend %btn-primary;
     margin-top: ab.$unit * 5;
     padding: ab.$unit * 2.5 ab.$unit * 5;
     min-height: 52px;
-    font-family: ab.$secondary-font;
     font-size: 0.9375rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: ab.$primary-lime;
-    color: ab.$on-primary;
-    border: none;
-    border-radius: ab.$radius-lg;
-    cursor: pointer;
-    transition: transform 0.15s ease-out;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-
-    &:active {
-      transform: scale(0.97);
-    }
 
     i {
       font-size: 1.25rem;

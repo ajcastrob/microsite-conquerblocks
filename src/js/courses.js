@@ -1,31 +1,38 @@
 /**
- * Animaciones para la sección de Cursos.
- * Activa las cards cuando entran en el viewport usando Intersection Observer.
+ * Animaciones para el microsite.
+ * - Intersection Observer con soporte escalonado (data-reveal-delay)
+ * - Efecto touch en cards para móvil
  */
 
 /**
- * Configura el Intersection Observer para animar las cards al hacer scroll.
- * Cada card empieza con opacity:0 y translateY(20px) en CSS.
- * Cuando entra en el viewport, se agrega la clase 'active' que la hace visible.
+ * Configura el Intersection Observer para animar elementos con [data-reveal].
+ * Soporta data-reveal-delay="100/200/300/400/500" para escalonar hermanos.
  */
 function setupRevealAnimation() {
-  const observerOptions = { threshold: 0.1 };
+  const observerOptions = { threshold: 0.08, rootMargin: "0px 0px -40px 0px" };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("active");
+        // Pequeño delay extra si el elemento no tiene delay propio
+        const delay = entry.target.getAttribute("data-reveal-delay") || "0";
+        setTimeout(() => {
+          entry.target.classList.add("active");
+        }, parseInt(delay, 10));
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  const cards = document.querySelectorAll(".courses__card");
-  cards.forEach((card) => observer.observe(card));
+  const targets = document.querySelectorAll(
+    "[data-reveal], .courses__card"
+  );
+  targets.forEach((target) => observer.observe(target));
 }
 
 /**
- * Agrega efecto de escala en touch para cards (móvil).
- * Simula una micro-interacción de "press" al tocar la card.
+ * Efecto de escala en touch para cards (móvil).
+ * Simula micro-interacción de "press".
  */
 function setupTouchEffects() {
   const cards = document.querySelectorAll(".courses__card");
@@ -33,7 +40,7 @@ function setupTouchEffects() {
   cards.forEach((card) => {
     card.addEventListener("touchstart", () => {
       card.style.transform = "scale(0.98)";
-      card.style.transition = "transform 0.2s";
+      card.style.transition = "transform 0.15s ease-out";
     });
 
     card.addEventListener("touchend", () => {
@@ -43,8 +50,7 @@ function setupTouchEffects() {
 }
 
 /**
- * Inicializa todas las animaciones de la sección de cursos.
- * Se ejecuta cuando el DOM está listo.
+ * Inicializa todas las animaciones.
  */
 export function initCourses() {
   setupRevealAnimation();

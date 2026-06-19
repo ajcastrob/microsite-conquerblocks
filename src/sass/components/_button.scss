@@ -1,84 +1,17 @@
-@use "sass:color";
 @use "../abstracts" as ab;
 
-// ─── Botón Primary ──────────────────────────────────────────────
-// Fondo lime, texto negro, sin decoración excesiva
+// ─── Botón Primary (hero home) ──────────────────────────────────
 .hero__buttons-access {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @extend %btn-primary;
   padding: ab.$unit * 2 ab.$unit * 3;
   min-height: 48px;
-
-  font-family: ab.$secondary-font;
   font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-
-  background-color: ab.$primary-lime;
-  color: ab.$on-primary;
-  border: none;
-  border-radius: ab.$radius-lg;
-  cursor: pointer;
-
-  transition:
-    transform 0.15s ease-out,
-    background-color 0.15s ease-out;
-
-  &:hover {
-    background-color: color.adjust(ab.$primary-lime, $lightness: 22%);
-  }
-
-  &:active {
-    transform: scale(0.97);
-  }
-
-  &:focus-visible {
-    outline: 2px solid ab.$primary-lime;
-    outline-offset: 2px;
-  }
 }
 
-// ─── Botón Secondary / Ghost ────────────────────────────────────
-// Fondo transparente, borde sutil, sin glass morphism decorativo
+// ─── Botón Ghost (hero home) ──────────────────────────────────
 .hero__buttons-info {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @extend %btn-ghost;
   padding: ab.$unit * 2 ab.$unit * 3;
   min-height: 48px;
-
-  font-family: ab.$secondary-font;
   font-size: 0.875rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-
-  background-color: transparent;
-  color: ab.$on-surface;
-  border: 1px solid ab.$outline-variant;
-  border-radius: ab.$radius-lg;
-  cursor: pointer;
-
-  transition:
-    background-color 0.15s ease-out,
-    border-color 0.15s ease-out,
-    transform 0.15s ease-out;
-
-  &:hover {
-    background-color: ab.$surface-container;
-    border-color: ab.$outline;
-  }
-
-  &:active {
-    transform: scale(0.97);
-  }
-
-  &:focus-visible {
-    outline: 2px solid ab.$primary-lime;
-    outline-offset: 2px;
-  }
 }

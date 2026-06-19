@@ -1,70 +1,59 @@
 // -----------------------------------------------------------------------------
-// This file contains all application-wide Sass variables.
+// Design Tokens — Dark Industrial Terminal
 // -----------------------------------------------------------------------------
 
-/// Regular font family
-/// @type List
-
-/*fonts */
-$primary-font: "Sora", sans-serif;
+// ─── Tipografía ─────────────────────────────────────────────────────
+$primary-font: "Epilogue", sans-serif;
 $secondary-font: "DM Sans", sans-serif;
 
-/* Primarys colors */
+// ─── Colores Primarios ──────────────────────────────────────────────
 $primary-lime: #d4ff00;
 $on-primary: #000000;
 
-/* Secundarys colors */
+// ─── Colores Secundarios ────────────────────────────────────────────
 $secondary-cyan: #00d4ff;
 $on-secondary: #003642;
 
-/* Terciary colors */
+// ─── Colores Terciarios ─────────────────────────────────────────────
 $tertiary-cyan: #00d4ff;
 
-/* Superficie en Dark Mode */
+// ─── Superficies (Dark Mode) ────────────────────────────────────────
 $background: #09090b;
-$surface: #09090b;
+$surface: #0c0c0e;
 $surface-container: #18181b;
 $surface-container-high: #27272a;
-$surface-container-low: #09090b;
+$surface-container-low: #0e0e10;
 $surface-container-lowest: #000000;
 $surface-bright: #3f3f46;
 $surface-dim: #09090b;
 
-/* Texto */
+// ─── Texto ──────────────────────────────────────────────────────────
 $on-surface: #fafafa;
 $on-surface-variant: #a1a1aa;
 $on-background: #fafafa;
 
-/*Bordes y líneas */
+// ─── Bordes y Líneas ────────────────────────────────────────────────
 $outline: #71717a;
 $outline-variant: #3f3f46;
 
-/*error*/
+// ─── Estados ────────────────────────────────────────────────────────
 $error: #ef4444;
 
-/*border radius */
+// ─── Border Radius ──────────────────────────────────────────────────
 $radius-default: 0.25rem;
 $radius-lg: 0.5rem;
 $radius-xl: 0.75rem;
+$radius-2xl: 1rem;
+$radius-3xl: 1.5rem;
 $radius-full: 9999px;
 
-/*Spacing*/
+// ─── Spacing ────────────────────────────────────────────────────────
 $container-padding-mobile: 24px;
 $container-padding-desktop: 64px;
 $unit: 8px;
 $section-gap: 128px;
 $gutter: 24px;
 
-/// Container's maximum width
-/// @type Length
+// ─── Layout ─────────────────────────────────────────────────────────
 $max-width: 1200px !default;
-
-/// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
-
-/// Relative or absolute URL where all assets are served from
-/// @type String
-/// @example scss - When using a CDN
-///   $base-url: 'https://cdn.example.com/assets/';
 $base-url: "/assets/" !default;

@@ -1,55 +1,52 @@
-@use "../abstracts";
+@use "../abstracts" as ab;
 
-// -----------------------------------------------------------------------------
-// This file contains CSS helper classes.
-// -----------------------------------------------------------------------------
-
-/**
- * Clear inner floats
- */
+// ─── Clearfix ───────────────────────────────────────────────────────
 .clearfix::after {
   clear: both;
   content: "";
   display: table;
 }
 
-/**
- * Main content containers
- * 1. Make the container full-width with a maximum width
- * 2. Center it in the viewport
- * 3. Leave some space on the edges, especially valuable on small screens
- */
+// ─── Container ──────────────────────────────────────────────────────
 .container {
-  max-width: abstracts.$max-width; /* 1 */
-  margin-left: auto; /* 2 */
-  margin-right: auto; /* 2 */
-  width: 100%; /* 1 */
+  max-width: ab.$max-width;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0 ab.$container-padding-mobile;
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding-left: abstracts.$container-padding-desktop; /* 64px en desktop */
-    padding-right: abstracts.$container-padding-desktop;
+    padding-left: ab.$container-padding-desktop;
+    padding-right: ab.$container-padding-desktop;
   }
 }
 
-/**
- * Hide text while making it readable for screen readers
- * 1. Needed in WebKit-based browsers because of an implementation bug;
- *    See: https://code.google.com/p/chromium/issues/detail?id=457146
- */
+// ─── Skip Link ──────────────────────────────────────────────────────
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: ab.$primary-lime;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:focus {
+    top: 0;
+  }
+}
+
 .hide-text {
   overflow: hidden;
-  padding: 0; /* 1 */
+  padding: 0;
   text-indent: 101%;
   white-space: nowrap;
 }
 
-/**
- * Hide element while making it readable for screen readers
- * Shamelessly borrowed from HTML5Boilerplate:
- * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
- */
 .visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -59,4 +56,34 @@
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+// ─── Reveal Animation (Intersection Observer) ──────────────────────
+// Los elementos con [data-reveal] entran con un fade-slide-up.
+// data-reveal-delay="100", "200", "300" permite escalonar hermanos.
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Soporte para escalonado vía attr en CSS (modern browsers)
+[data-reveal-delay="100"] { transition-delay: 0.1s; }
+[data-reveal-delay="200"] { transition-delay: 0.2s; }
+[data-reveal-delay="300"] { transition-delay: 0.3s; }
+[data-reveal-delay="400"] { transition-delay: 0.4s; }
+[data-reveal-delay="500"] { transition-delay: 0.5s; }
+
+@media (max-width: 768px) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

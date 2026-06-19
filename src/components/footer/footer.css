@@ -1,23 +1,41 @@
 :host {
   display: block;
   background-color: var(--surface-container-lowest, #000);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
   font-family: var(--secondary-font, "DM Sans", sans-serif);
   color: var(--on-surface-variant, #a1a1aa);
+  position: relative;
+
+  /* Sutil línea decorativa superior */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(212, 255, 0, 0.15),
+      transparent
+    );
+    pointer-events: none;
+  }
 }
 
 .footer__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 24px 32px;
+  padding: 48px 24px 24px;
   display: grid;
-  gap: 40px;
+  gap: 32px;
 }
 
 @media (min-width: 768px) {
   .footer__container {
     grid-template-columns: 1.5fr 1fr 1fr;
-    padding: 56px 64px 32px;
+    padding: 64px 64px 32px;
   }
 }
 
@@ -29,7 +47,7 @@
 }
 
 .footer__logo-cb {
-  font-family: var(--primary-font, "Sora", sans-serif);
+  font-family: var(--primary-font, "Epilogue", sans-serif);
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -37,7 +55,7 @@
 }
 
 .footer__logo-blocks {
-  font-family: var(--primary-font, "Sora", sans-serif);
+  font-family: var(--primary-font, "Epilogue", sans-serif);
   font-size: 1.25rem;
   font-weight: 300;
   letter-spacing: -0.02em;
@@ -53,11 +71,11 @@
 }
 
 .footer__nav-title {
-  font-family: var(--primary-font, "Sora", sans-serif);
-  font-size: 0.75rem;
+  font-family: var(--primary-font, "Epilogue", sans-serif);
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--on-surface, #fafafa);
   margin-bottom: 16px;
   display: block;
@@ -73,12 +91,19 @@
   font-size: 0.875rem;
   color: var(--on-surface-variant, #a1a1aa);
   text-decoration: none;
-  transition: color 0.2s ease-out;
+  transition:
+    color 0.25s ease-out,
+    transform 0.25s ease-out;
   width: fit-content;
+  padding: 8px 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .footer__link:hover {
   color: var(--primary-lime, #d4ff00);
+  transform: translateX(4px);
 }
 
 .footer__contact {
@@ -90,10 +115,15 @@
 .footer__info {
   font-size: 0.875rem;
   color: var(--on-surface-variant, #a1a1aa);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
 }
 
+/* Bottom bar */
 .footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
   padding: 20px 24px;
 }
 
@@ -107,5 +137,6 @@
   max-width: 1200px;
   margin: 0 auto;
   font-size: 0.75rem;
-  color: var(--outline, #71717a);
+  color: var(--on-surface-variant, #a1a1aa);
+  letter-spacing: 0.02em;
 }
