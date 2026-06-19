@@ -2,18 +2,36 @@
 
 // ─── Animaciones ────────────────────────────────────────────────────
 @keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes heroGlow {
-  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
-  50%      { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
 }
 
 @keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // ─── Sección Hero ───────────────────────────────────────────────────
@@ -37,8 +55,16 @@
       linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+    mask-image: radial-gradient(
+      ellipse 80% 60% at 50% 40%,
+      black 20%,
+      transparent 70%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 60% at 50% 40%,
+      black 20%,
+      transparent 70%
+    );
     pointer-events: none;
   }
 
@@ -51,7 +77,11 @@
     left: 50%;
     width: 600px;
     height: 400px;
-    background: radial-gradient(ellipse, rgba(ab.$primary-lime, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+      ellipse,
+      rgba(ab.$primary-lime, 0.08) 0%,
+      transparent 70%
+    );
     transform: translate(-50%, -50%);
     animation: heroGlow 8s ease-in-out infinite;
     pointer-events: none;
@@ -84,6 +114,7 @@
     padding: 6px 16px;
     margin-bottom: ab.$unit;
     width: fit-content;
+    margin-bottom: 20px;
 
     // Iconito decorativo antes del texto
     &::before {
@@ -186,8 +217,13 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 // ─── Mobile ─────────────────────────────────────────────────────────
@@ -224,8 +260,8 @@
 
     &__header-subtitle {
       font-size: 0.65rem;
+      margin-bottom: 5px;
       padding: 4px 12px;
-      margin-bottom: 0;
     }
 
     &__description {
