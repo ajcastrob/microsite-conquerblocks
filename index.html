@@ -10,63 +10,66 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@100..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Epilogue:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Conquerblocks- academia tecnológica</title>
-    <script type="module" crossorigin src="/microsite-conquerblocks/assets/main-DHBR_COE.js"></script>
-    <link rel="stylesheet" crossorigin href="/microsite-conquerblocks/assets/main-Cas6FL4i.css">
+    <title>Conquerblocks — academia tecnológica</title>
+    <script type="module" crossorigin src="/microsite-conquerblocks/assets/main-DAzqmd0U.js"></script>
+    <link rel="stylesheet" crossorigin href="/microsite-conquerblocks/assets/main-DRhGUs-j.css">
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header>
       <navbar-conquer></navbar-conquer>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero container">
         <div class="container-hero">
           <header class="hero__header">
-            <span class="hero__header-subtitle"
+            <span class="hero__header-subtitle" data-reveal data-reveal-delay="100"
               >Aprendizaje para conquistar</span
             >
-            <h1>Máster Full <span class="hero__header-span">Stack</span></h1>
+            <h1 data-reveal data-reveal-delay="200">
+              Máster Full <span class="hero__header-span">Stack</span>
+            </h1>
 
-            <p class="hero__description">
+            <p class="hero__description" data-reveal data-reveal-delay="300">
               Vive el futuro de la web con profesores de alta calidad. Domina el
               stack completo de un desarrollador sin miedo a volver atrás.
             </p>
+
+            <div class="hero__buttons" data-reveal data-reveal-delay="400">
+              <a
+                href="/microsite-conquerblocks/pages/fullstack.html"
+                class="hero__buttons-access"
+                >INICIA AHORA</a
+              >
+              <a
+                href="/microsite-conquerblocks/pages/cursos.html"
+                class="hero__buttons-info"
+                >Otros másters</a
+              >
+            </div>
           </header>
 
-          <figure class="hero__header-img">
-            <img src="/microsite-conquerblocks/assets/image-hero-Cq5kGTww.avif" alt="image-hero" />
+          <figure class="hero__header-img" data-reveal data-reveal-delay="300">
+            <img src="/microsite-conquerblocks/assets/image-hero-Cq5kGTww.avif" alt="image-hero" width="1200" height="800" />
           </figure>
-        </div>
-
-        <div class="hero__buttons">
-          <a
-            href="/microsite-conquerblocks/pages/fullstack.html"
-            class="hero__buttons-access"
-            >INICIA AHORA</a
-          >
-          <a
-            href="/microsite-conquerblocks/pages/cursos.html"
-            class="hero__buttons-info"
-            >Otros másters</a
-          >
         </div>
       </section>
 
       <section class="statistics container">
         <div class="statistics__container">
-          <article class="statistics__card">
+          <article class="statistics__card" data-reveal data-reveal-delay="100">
             <h3 class="statistics__number">24+</h3>
             <span class="statistics__label">Módulos</span>
           </article>
-          <article class="statistics__card">
+          <article class="statistics__card" data-reveal data-reveal-delay="200">
             <h3 class="statistics__number">180h</h3>
             <span class="statistics__label">Contenido</span>
           </article>
-          <article class="statistics__card">
+          <article class="statistics__card" data-reveal data-reveal-delay="300">
             <h3 class="statistics__number">98%</h3>
             <span class="statistics__label">Éxito</span>
           </article>
@@ -74,13 +77,13 @@
       </section>
 
       <section class="courses container" id="courses">
-        <div class="courses__header">
+        <div class="courses__header" data-reveal>
           <h2>Nuestros Cursos</h2>
           <div class="courses__nav"></div>
         </div>
 
-        <div class="courses__grid">
-          <article class="courses__card courses__card--large">
+        <div class="courses__grid" data-reveal>
+          <article class="courses__card courses__card--large" data-reveal-delay="100">
             <div class="courses__image-wrapper">
               <img
                 src="/microsite-conquerblocks/assets/ciberseguridad-BWowZcmb.avif"
@@ -108,7 +111,7 @@
         </div>
 
         <div class="courses__small-grid">
-          <article class="courses__card courses__card--small">
+          <article class="courses__card courses__card--small" data-reveal-delay="200">
             <div class="courses__small-image-wrapper">
               <img src="/microsite-conquerblocks/assets/blockchain-CFRTkAH1.avif" alt="Curso de Blockchain" />
               <div class="courses__small-image-overlay"></div>
@@ -135,7 +138,7 @@
               ></div>
             </div>
           </article>
-          <article class="courses__card courses__card--small">
+          <article class="courses__card courses__card--small" data-reveal-delay="300">
             <div class="courses__small-image-wrapper">
               <img
                 src="/microsite-conquerblocks/assets/IA-Cl-JtOxl.avif"
