@@ -1,0 +1,111 @@
+:host {
+  display: block;
+  background-color: var(--surface-container-lowest, #000);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: var(--secondary-font, "DM Sans", sans-serif);
+  color: var(--on-surface-variant, #a1a1aa);
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 32px;
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .footer__container {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    padding: 56px 64px 32px;
+  }
+}
+
+.footer__logo {
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.footer__logo-cb {
+  font-family: var(--primary-font, "Sora", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--on-surface, #fafafa);
+}
+
+.footer__logo-blocks {
+  font-family: var(--primary-font, "Sora", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--primary-lime, #d4ff00);
+}
+
+.footer__desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--on-surface-variant, #a1a1aa);
+  margin: 12px 0 0;
+  max-width: 260px;
+}
+
+.footer__nav-title {
+  font-family: var(--primary-font, "Sora", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--on-surface, #fafafa);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__link {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant, #a1a1aa);
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+  width: fit-content;
+}
+
+.footer__link:hover {
+  color: var(--primary-lime, #d4ff00);
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__info {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant, #a1a1aa);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 24px;
+}
+
+@media (min-width: 768px) {
+  .footer__bottom {
+    padding: 20px 64px;
+  }
+}
+
+.footer__copy {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  color: var(--outline, #71717a);
+}
