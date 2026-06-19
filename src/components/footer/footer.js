@@ -1,8 +1,5 @@
 import styles from "./footer.css" with { type: "css" };
 
-const REMIX_ICONS_URL =
-  "https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css";
-
 export class FooterConquer extends HTMLElement {
   constructor() {
     super();
@@ -11,20 +8,7 @@ export class FooterConquer extends HTMLElement {
   }
 
   async connectedCallback() {
-    await this.loadRemixIcons();
     this.render();
-  }
-
-  async loadRemixIcons() {
-    try {
-      const response = await fetch(REMIX_ICONS_URL);
-      const cssText = await response.text();
-      const sheet = new CSSStyleSheet();
-      sheet.replaceSync(cssText);
-      this.shadowRoot.adoptedStyleSheets.push(sheet);
-    } catch (error) {
-      console.warn("No se pudieron cargar los Remix Icons:", error);
-    }
   }
 
   render() {
