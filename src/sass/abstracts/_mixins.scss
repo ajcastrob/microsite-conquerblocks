@@ -2,6 +2,8 @@
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
 
+@use "variables" as var;
+
 /// Event wrapper
 /// @author Harry Roberts
 /// @param {Bool} $self [false] - Whether or not to include current selector
@@ -32,5 +34,36 @@
   #{$context} & {
     @content;
   }
+}
+
+// ─── Responsive Mixins ──────────────────────────────────────────────
+
+/// Mobile first: styles applied above $bp
+@mixin respond-above($bp) {
+  @if $bp == mobile {
+    @media (min-width: var.$bp-mobile) { @content; }
+  } @else if $bp == tablet {
+    @media (min-width: var.$bp-tablet) { @content; }
+  }
+}
+
+/// Desktop first: styles applied below $bp
+@mixin respond-below($bp) {
+  @if $bp == mobile {
+    @media (max-width: #{var.$bp-mobile - 1px}) { @content; }
+  } @else if $bp == tablet {
+    @media (max-width: #{var.$bp-tablet - 1px}) { @content; }
+  }
+}
+
+/// Between two breakpoints (tablet-only)
+@mixin respond-between($min, $max) {
+  $min-val: var.$bp-mobile;
+  $max-val: null;
+
+  @if $min == tablet { $min-val: var.$bp-tablet; }
+  @if $max == tablet { $max-val: var.$bp-tablet; }
+
+  @media (min-width: $min-val) and (max-width: #{$max-val - 1px}) { @content; }
 }
 

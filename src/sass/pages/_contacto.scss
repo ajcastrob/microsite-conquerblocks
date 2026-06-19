@@ -2,7 +2,8 @@
 
 // ─── 1. Hero ──────────────────────────────────────────────────────
 .contacto-hero {
-  padding: ab.$unit * 10 0 ab.$unit * 6;
+  padding-top: ab.$unit * 10;
+  padding-bottom: ab.$unit * 6;
   min-height: 25vh;
   display: flex;
   flex-direction: column;
@@ -41,11 +42,11 @@
 
 // ─── 2. Contact Grid ───────────────────────────────────────────────
 .contacto-grid {
-  padding: 0 0 ab.$unit * 12;
+  padding-bottom: ab.$unit * 12;
   display: grid;
   gap: ab.$gutter;
 
-  @media (min-width: 1024px) {
+  @include ab.respond-above(tablet) {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -171,13 +172,14 @@
 }
 
 // ─── Responsive ────────────────────────────────────────────────────
-@media (max-width: 767px) {
+@include ab.respond-below(mobile) {
   .contacto-hero {
-    padding: ab.$unit * 8 0 ab.$unit * 4;
+    padding-top: ab.$unit * 8;
+    padding-bottom: ab.$unit * 4;
   }
 
   .contacto-grid {
-    padding: 0 0 ab.$unit * 8;
+    padding-bottom: ab.$unit * 8;
 
     &__info {
       padding: ab.$unit * 4;

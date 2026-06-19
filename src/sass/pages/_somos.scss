@@ -2,7 +2,8 @@
 
 // ─── 1. Hero ──────────────────────────────────────────────────────
 .somos-hero {
-  padding: ab.$unit * 10 0 ab.$unit * 8;
+  padding-top: ab.$unit * 10;
+  padding-bottom: ab.$unit * 8;
   min-height: 60vh;
   display: flex;
   flex-direction: column;
@@ -61,7 +62,8 @@
 
 // ─── 2. Stats ─────────────────────────────────────────────────────
 .somos-stats {
-  padding: ab.$unit * 10 0;
+  padding-top: ab.$unit * 10;
+  padding-bottom: ab.$unit * 10;
 
   h2 {
     font-family: ab.$primary-font;
@@ -128,7 +130,8 @@
 
 // ─── 5. Team ──────────────────────────────────────────────────────
 .somos-team {
-  padding: ab.$unit * 10 0;
+  padding-top: ab.$unit * 10;
+  padding-bottom: ab.$unit * 10;
 
   h2 {
     font-family: ab.$primary-font;
@@ -214,7 +217,8 @@
 
 // ─── 6. Commitment ────────────────────────────────────────────────
 .somos-commitment {
-  padding: ab.$unit * 10 0;
+  padding-top: ab.$unit * 10;
+  padding-bottom: ab.$unit * 10;
 
   h2 {
     font-family: ab.$primary-font;
@@ -281,7 +285,8 @@
 
 // ─── 7. Teachers ──────────────────────────────────────────────────
 .somos-teachers {
-  padding: ab.$unit * 10 0;
+  padding-top: ab.$unit * 10;
+  padding-bottom: ab.$unit * 10;
 
   h2 {
     font-family: ab.$primary-font;
@@ -384,7 +389,8 @@
 
 // ─── 9. Testimonials ──────────────────────────────────────────────
 .somos-testimonials {
-  padding: ab.$unit * 10 0;
+  padding-top: ab.$unit * 10;
+  padding-bottom: ab.$unit * 10;
 
   h2 {
     font-family: ab.$primary-font;
@@ -484,7 +490,7 @@
 }
 
 // ─── Mobile ───────────────────────────────────────────────────────
-@media (max-width: 768px) {
+@include ab.respond-below(mobile) {
   .somos-hero {
     padding: ab.$unit * 8 ab.$container-padding-mobile ab.$unit * 6;
     min-height: auto;
@@ -545,8 +551,15 @@
   }
 }
 
+// ─── Tablet ───────────────────────────────────────────────────────
+@include ab.respond-between(mobile, tablet) {
+  .somos-team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 // ─── Desktop ──────────────────────────────────────────────────────
-@media (min-width: 769px) {
+@include ab.respond-above(tablet) {
   .somos-hero {
     padding: ab.$unit * 12 ab.$container-padding-desktop;
 

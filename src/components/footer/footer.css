@@ -32,6 +32,7 @@
   gap: 32px;
 }
 
+/* mobile-up */
 @media (min-width: 768px) {
   .footer__container {
     grid-template-columns: 1.5fr 1fr 1fr;
@@ -127,6 +128,7 @@
   padding: 20px 24px;
 }
 
+/* mobile-up */
 @media (min-width: 768px) {
   .footer__bottom {
     padding: 20px 64px;

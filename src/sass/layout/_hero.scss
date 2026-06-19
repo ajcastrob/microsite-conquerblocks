@@ -22,7 +22,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: ab.$unit * 6 0 ab.$unit * 4;
+  padding-top: ab.$unit * 6;
+  padding-bottom: ab.$unit * 4;
   position: relative;
   overflow: hidden;
 
@@ -190,7 +191,7 @@
 }
 
 // ─── Mobile ─────────────────────────────────────────────────────────
-@media (max-width: 768px) {
+@include ab.respond-below(mobile) {
   .hero {
     min-height: auto;
     padding: ab.$unit * 6 ab.$container-padding-mobile ab.$unit * 6;
@@ -247,8 +248,38 @@
   }
 }
 
-// ─── Tablet+ ────────────────────────────────────────────────────────
-@media (min-width: 769px) {
+// ─── Tablet (768px — 1024px) ──────────────────────────────────────────
+@include ab.respond-between(mobile, tablet) {
+  .hero {
+    padding: ab.$unit * 6 ab.$container-padding-mobile;
+
+    .container-hero {
+      flex-direction: row;
+      align-items: center;
+      gap: ab.$unit * 4;
+    }
+
+    &__description {
+      max-width: 340px;
+    }
+  }
+
+  .hero__header {
+    flex: 1;
+  }
+
+  .hero__header-img {
+    flex: 0 1 350px;
+    align-self: center;
+
+    img {
+      aspect-ratio: 16 / 10;
+    }
+  }
+}
+
+// ─── Desktop ─────────────────────────────────────────────────────────
+@include ab.respond-above(tablet) {
   .hero {
     padding: ab.$unit * 8 ab.$container-padding-desktop;
 

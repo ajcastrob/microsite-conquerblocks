@@ -13,7 +13,8 @@
 
 // ─── Sección Courses ────────────────────────────────────────────────
 .courses {
-  padding: ab.$unit * 6 0 ab.$unit * 5;
+  padding-top: ab.$unit * 6;
+  padding-bottom: ab.$unit * 5;
 
   // ─── Header ─────────────────────────────────────────────────────
   &__header {
@@ -345,7 +346,7 @@
 }
 
 // ─── Mobile ─────────────────────────────────────────────────────────
-@media (max-width: 768px) {
+@include ab.respond-below(mobile) {
   .courses {
     padding: ab.$unit * 4 ab.$container-padding-mobile ab.$unit * 6;
 
@@ -381,8 +382,19 @@
   }
 }
 
+// ─── Tablet (768px — 1024px) ──────────────────────────────────────────
+@include ab.respond-between(mobile, tablet) {
+  .courses {
+    padding: ab.$unit * 6 ab.$container-padding-mobile;
+
+    &__small-grid {
+      gap: ab.$unit * 3;
+    }
+  }
+}
+
 // ─── Desktop ────────────────────────────────────────────────────────
-@media (min-width: 769px) {
+@include ab.respond-above(tablet) {
   .courses {
     padding: ab.$unit * 8 ab.$container-padding-desktop;
   }

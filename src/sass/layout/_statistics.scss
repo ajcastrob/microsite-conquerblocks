@@ -15,7 +15,8 @@
 .statistics {
   display: flex;
   justify-content: center;
-  padding: ab.$unit * 6 0 ab.$unit * 5;
+  padding-top: ab.$unit * 6;
+  padding-bottom: ab.$unit * 5;
 
   &__container {
     display: flex;
@@ -125,7 +126,7 @@
 }
 
 // ─── Mobile ─────────────────────────────────────────────────────────
-@media (max-width: 768px) {
+@include ab.respond-below(mobile) {
   .statistics {
     padding: ab.$unit * 4 ab.$container-padding-mobile ab.$unit * 6;
 
@@ -142,8 +143,27 @@
   }
 }
 
+// ─── Tablet (768px — 1024px) ──────────────────────────────────────────
+@include ab.respond-between(mobile, tablet) {
+  .statistics {
+    padding: ab.$unit * 6 ab.$container-padding-mobile;
+
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: ab.$unit * 3;
+    }
+
+    &__card:last-child {
+      grid-column: 1 / -1;
+      max-width: 50%;
+      justify-self: center;
+    }
+  }
+}
+
 // ─── Desktop ────────────────────────────────────────────────────────
-@media (min-width: 769px) {
+@include ab.respond-above(tablet) {
   .statistics {
     padding: ab.$unit * 8 ab.$container-padding-desktop;
   }

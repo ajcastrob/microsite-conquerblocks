@@ -57,3 +57,7 @@ $gutter: 24px;
 // ─── Layout ─────────────────────────────────────────────────────────
 $max-width: 1200px !default;
 $base-url: "/assets/" !default;
+
+// ─── Breakpoints ─────────────────────────────────────────────────
+$bp-mobile: 768px;
+$bp-tablet: 1024px;

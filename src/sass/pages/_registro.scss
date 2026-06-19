@@ -2,7 +2,8 @@
 
 // ─── 1. Hero ──────────────────────────────────────────────────────
 .registro-hero {
-  padding: ab.$unit * 10 0 ab.$unit * 6;
+  padding-top: ab.$unit * 10;
+  padding-bottom: ab.$unit * 6;
   min-height: 30vh;
   display: flex;
   align-items: center;
@@ -42,7 +43,7 @@
 
 // ─── 2. Form ───────────────────────────────────────────────────────
 .registro-form {
-  padding: 0 0 ab.$unit * 12;
+  padding-bottom: ab.$unit * 12;
 
   &__card {
     background: rgba(ab.$surface-container, 0.6);
@@ -85,7 +86,7 @@
     display: grid;
     gap: ab.$gutter;
 
-    @media (min-width: 768px) {
+    @include ab.respond-above(mobile) {
       grid-template-columns: 1fr 1fr;
     }
   }
@@ -194,13 +195,14 @@
 }
 
 // ─── Responsive ────────────────────────────────────────────────────
-@media (max-width: 767px) {
+@include ab.respond-below(mobile) {
   .registro-hero {
-    padding: ab.$unit * 8 0 ab.$unit * 4;
+    padding-top: ab.$unit * 8;
+    padding-bottom: ab.$unit * 4;
   }
 
   .registro-form {
-    padding: 0 0 ab.$unit * 8;
+    padding-bottom: ab.$unit * 8;
 
     &__card {
       padding: ab.$unit * 4;
